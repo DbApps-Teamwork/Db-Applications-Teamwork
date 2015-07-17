@@ -1,7 +1,7 @@
 SupermarketChain/packages
 SupermarketChain/SupermarketChain/bin
 SupermarketChain/SupermarketChain/obj
-SupermarketChain/SupermarketChain.Oracle.Data/bin
-SupermarketChain/SupermarketChain.Oracle.Data/obj
-SupermarketChain/SupermarketChain.Oracle.DataAccess/bin
-SupermarketChain/SupermarketChain.Oracle.DataAccess/obj
+SupermarketChain/SupermarketChainOracle.Data/bin
+SupermarketChain/SupermarketChainOracle.Data/obj
+SupermarketChain/SupermarketChainOracle.DataAccess/bin
+SupermarketChain/SupermarketChainOracle.DataAccess/obj
