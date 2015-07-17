@@ -46,12 +46,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Contracts\ISupermarketChainOracleData.cs" />
     <Compile Include="GenericRepository.cs" />
+    <Compile Include="MeasuresRepository.cs" />
+    <Compile Include="ProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SupermarketChainOracleData.cs" />
+    <Compile Include="VendorsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SupermarketChainOracle.Data\SupermarketChainOracle.Data.csproj">
+      <Project>{b50d2e39-214e-4fac-be60-0146d0a4d7e5}</Project>
+      <Name>SupermarketChainOracle.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

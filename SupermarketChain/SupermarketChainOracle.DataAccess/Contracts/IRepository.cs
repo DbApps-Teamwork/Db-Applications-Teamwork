@@ -13,12 +13,13 @@ namespace SupermarketChainOracle.DataAccess.Contracts
             Expression<Func<TEntity, bool>> filter = null,
             string properties = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
+        
         TEntity GetById(object id);
 
-        void Add(TEntity entity);
+        //void Add(TEntity entity);
 
-        void Update(TEntity entity);
+        //void Update(TEntity entity);
 
-        void Delete(TEntity entity);
+        //void Delete(TEntity entity);
     }
 }

@@ -55,24 +55,24 @@ namespace SupermarketChainOracle.DataAccess
             return this.dbSet.Find(id);
         }
 
-        public virtual void Add(TEntity entity)
-        {
-            this.dbSet.Add(entity);
-        }
+        //public virtual void Add(TEntity entity)
+        //{
+        //    this.dbSet.Add(entity);
+        //}
 
-        public virtual void Update(TEntity entity)
-        {
-            this.dbSet.Attach(entity);
-            this.context.Entry(entity).State = EntityState.Modified;
-        }
+        //public virtual void Update(TEntity entity)
+        //{
+        //    this.dbSet.Attach(entity);
+        //    this.context.Entry(entity).State = EntityState.Modified;
+        //}
 
-        public virtual void Delete(TEntity entity)
-        {
-            if (this.context.Entry(entity).State == EntityState.Detached)
-            {
-                this.dbSet.Attach(entity);
-            }
-            this.dbSet.Remove(entity);
-        }
+        //public virtual void Delete(TEntity entity)
+        //{
+        //    if (this.context.Entry(entity).State == EntityState.Detached)
+        //    {
+        //        this.dbSet.Attach(entity);
+        //    }
+        //    this.dbSet.Remove(entity);
+        //}
     }
 }
