@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SupermarketChain.Oracle.Data")]
+[assembly: AssemblyTitle("SupermarketChainOracle.DataAccess")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SupermarketChain.Oracle.Data")]
+[assembly: AssemblyProduct("SupermarketChainOracle.DataAccess")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("000fc7d0-7917-4250-b63f-7db2cf68023f")]
+[assembly: Guid("dace0e71-060e-4901-aa27-ce0ed9520bcc")]
 
 // Version information for an assembly consists of the following four values:
 //

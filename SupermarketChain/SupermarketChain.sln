@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChain", "Superma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChain.Oracle.Data", "SupermarketChain.Oracle.Data\SupermarketChain.Oracle.Data.csproj", "{430F4F96-C62C-4CC3-A37C-B48A3591C4C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChain.Oracle.DataAccess", "SupermarketChain.Oracle.DataAccess\SupermarketChain.Oracle.DataAccess.csproj", "{73596612-BE9D-481F-9F11-50A910E64231}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{430F4F96-C62C-4CC3-A37C-B48A3591C4C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{430F4F96-C62C-4CC3-A37C-B48A3591C4C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{430F4F96-C62C-4CC3-A37C-B48A3591C4C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73596612-BE9D-481F-9F11-50A910E64231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73596612-BE9D-481F-9F11-50A910E64231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73596612-BE9D-481F-9F11-50A910E64231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73596612-BE9D-481F-9F11-50A910E64231}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
