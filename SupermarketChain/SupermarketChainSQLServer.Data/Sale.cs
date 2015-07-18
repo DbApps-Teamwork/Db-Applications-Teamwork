@@ -20,6 +20,7 @@ namespace SupermarketChainSQLServer.Data
         public decimal Price { get; set; }
 
         [Required]
+        [StringLength(100)]
         public string Location { get; set; }
 
         public DateTime SaleDate { get; set; }

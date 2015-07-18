@@ -17,6 +17,7 @@ namespace SupermarketChainSQLServer.Data
         public int MeasureId { get; set; }
 
         [Required]
+        [StringLength(50)]
         public string MeasureName { get; set; }
 
         public ICollection<Product> Products { get; set; }
