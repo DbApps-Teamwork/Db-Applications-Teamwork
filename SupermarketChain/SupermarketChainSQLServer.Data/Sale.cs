@@ -9,6 +9,20 @@ namespace SupermarketChainSQLServer.Data
 {
     public class Sale
     {
+        public Sale()
+        {
+        }
+
+        public Sale(int productId, int quantity,
+            decimal price, string location, DateTime date)
+        {
+            this.ProductId = productId;
+            this.Quantity = quantity;
+            this.Price = price;
+            this.Location = location;
+            this.SaleDate = date;
+        }
+
         public int SaleId { get; set; }
 
         public int ProductId { get; set; }

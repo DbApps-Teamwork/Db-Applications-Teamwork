@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainSQLServer.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainSQLServer.DataAccess", "SupermarketChainSQLServer.DataAccess\SupermarketChainSQLServer.DataAccess.csproj", "{5BA1DE54-6AA9-4696-ADE1-C32985BC3129}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelSalesReports.DataAccess", "ExcelSalesReports.DataAccess\ExcelSalesReports.DataAccess.csproj", "{52DF0B17-0BCB-4DE4-A315-D74B8FBF86B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5BA1DE54-6AA9-4696-ADE1-C32985BC3129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BA1DE54-6AA9-4696-ADE1-C32985BC3129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BA1DE54-6AA9-4696-ADE1-C32985BC3129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52DF0B17-0BCB-4DE4-A315-D74B8FBF86B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52DF0B17-0BCB-4DE4-A315-D74B8FBF86B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52DF0B17-0BCB-4DE4-A315-D74B8FBF86B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52DF0B17-0BCB-4DE4-A315-D74B8FBF86B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
