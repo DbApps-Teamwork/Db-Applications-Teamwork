@@ -13,7 +13,13 @@ namespace SupermarketChain
     {
         static void Main(string[] args)
         {
-            
+            // Test data access for Oracle Db
+            //var data = new SupermarketChainOracleData(new SupermarketOracleEntities());
+            //var products = data.ProductRepository.Get();
+            //foreach (var product in products)
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
         }
     }
 }

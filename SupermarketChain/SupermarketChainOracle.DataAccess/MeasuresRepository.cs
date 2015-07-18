@@ -8,7 +8,7 @@ using SupermarketChainOracle.Data;
 
 namespace SupermarketChainOracle.DataAccess
 {
-    public class MeasuresRepository : GenericRepository<MEASURE>
+    public class MeasuresRepository : GenericRepository<Measure>
     {
         public MeasuresRepository(DbContext context)
             :base(context)

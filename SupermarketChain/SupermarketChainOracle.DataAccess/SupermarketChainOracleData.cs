@@ -12,46 +12,46 @@ namespace SupermarketChainOracle.DataAccess
     public class SupermarketChainOracleData : ISupermarketChainOracleData
     {
         private DbContext context;
-        private IRepository<PRODUCT> productRepository;
-        private IRepository<MEASURE> measureRepository;
-        private IRepository<VENDOR> vendorRepository; 
+        private IRepository<Product> productRepository;
+        private IRepository<Measure> measureRepository;
+        private IRepository<Vendor> vendorRepository; 
 
         public SupermarketChainOracleData(DbContext context)
         {
             this.context = context;
         }
 
-        public IRepository<PRODUCT> ProductRepository
+        public IRepository<Product> ProductRepository
         {
             get
             {
                 if (this.productRepository == null)
                 {
-                    this.productRepository = new GenericRepository<PRODUCT>(this.context);
+                    this.productRepository = new GenericRepository<Product>(this.context);
                 }
                 return this.productRepository;
             }
         }
 
-        public IRepository<VENDOR> VendorRepository
+        public IRepository<Vendor> VendorRepository
         {
             get
             {
                 if (this.vendorRepository == null)
                 {
-                    this.vendorRepository = new GenericRepository<VENDOR>(this.context);
+                    this.vendorRepository = new GenericRepository<Vendor>(this.context);
                 }
                 return this.vendorRepository;
             }
         }
 
-        public IRepository<MEASURE> MeasureRepository
+        public IRepository<Measure> MeasureRepository
         {
             get
             {
                 if (this.measureRepository == null)
                 {
-                    this.measureRepository = new GenericRepository<MEASURE>(this.context);
+                    this.measureRepository = new GenericRepository<Measure>(this.context);
                 }
                 return this.measureRepository;
             }

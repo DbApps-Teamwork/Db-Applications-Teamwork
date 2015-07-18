@@ -9,10 +9,10 @@ namespace SupermarketChainOracle.DataAccess.Contracts
 {
     public interface ISupermarketChainOracleData
     {
-        IRepository<PRODUCT> ProductRepository { get; }
+        IRepository<Product> ProductRepository { get; }
         
-        IRepository<MEASURE> MeasureRepository { get; }
+        IRepository<Measure> MeasureRepository { get; }
 
-        IRepository<VENDOR> VendorRepository { get; }
+        IRepository<Vendor> VendorRepository { get; }
     }
 }

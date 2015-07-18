@@ -12,16 +12,16 @@ namespace SupermarketChainOracle.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class MEASURE
+    public partial class Measure
     {
-        public MEASURE()
+        public Measure()
         {
-            this.PRODUCTS = new HashSet<PRODUCT>();
+            this.Products = new HashSet<Product>();
         }
     
-        public decimal ID { get; set; }
-        public string MEASURE_NAME { get; set; }
+        public int Id { get; set; }
+        public string MeasureName { get; set; }
     
-        public virtual ICollection<PRODUCT> PRODUCTS { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

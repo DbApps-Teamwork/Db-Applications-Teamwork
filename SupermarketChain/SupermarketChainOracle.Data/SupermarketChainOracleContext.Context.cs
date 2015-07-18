@@ -25,8 +25,8 @@ namespace SupermarketChainOracle.Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<MEASURE> MEASURES { get; set; }
-        public DbSet<PRODUCT> PRODUCTS { get; set; }
-        public DbSet<VENDOR> VENDORS { get; set; }
+        public DbSet<Measure> Measures { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
     }
 }

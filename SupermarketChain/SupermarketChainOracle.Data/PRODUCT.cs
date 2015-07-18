@@ -12,15 +12,15 @@ namespace SupermarketChainOracle.Data
     using System;
     using System.Collections.Generic;
     
-    public partial class PRODUCT
+    public partial class Product
     {
-        public decimal ID { get; set; }
-        public string PRODUCT_NAME { get; set; }
-        public decimal VENDOR_ID { get; set; }
-        public decimal MEASURE_ID { get; set; }
-        public decimal PRICE { get; set; }
+        public int Id { get; set; }
+        public string ProductName { get; set; }
+        public int VendorId { get; set; }
+        public int MeasureId { get; set; }
+        public decimal Price { get; set; }
     
-        public virtual MEASURE MEASURE { get; set; }
-        public virtual VENDOR VENDOR { get; set; }
+        public virtual Measure Measure { get; set; }
+        public virtual Vendor Vendor { get; set; }
     }
 }
