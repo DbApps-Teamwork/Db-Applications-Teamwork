@@ -63,6 +63,14 @@
       <Project>{b50d2e39-214e-4fac-be60-0146d0a4d7e5}</Project>
       <Name>SupermarketChainOracle.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SupermarketChainSQLServer.DataAccess\SupermarketChainSQLServer.DataAccess.csproj">
+      <Project>{5ba1de54-6aa9-4696-ade1-c32985bc3129}</Project>
+      <Name>SupermarketChainSQLServer.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupermarketChainSQLServer.Data\SupermarketChainSQLServer.Data.csproj">
+      <Project>{7acea284-7346-4667-9934-3df89b162ac1}</Project>
+      <Name>SupermarketChainSQLServer.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

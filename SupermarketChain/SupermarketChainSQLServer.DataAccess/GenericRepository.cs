@@ -6,17 +6,16 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using SupermarketChainOracle.Data.Contracts;
-using SupermarketChainOracle.DataAccess.Contracts;
+using SupermarketChainSQLServer.DataAccess.Contracts;
 
-namespace SupermarketChainOracle.DataAccess
+namespace SupermarketChainSQLServer.DataAccess
 {
     public class GenericRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected ISupermarketOracleEntities context;
+        protected ISupermarketSQLServerContext context;
         protected IDbSet<TEntity> dbSet;
 
-        public GenericRepository(ISupermarketOracleEntities context)
+        public GenericRepository(ISupermarketSQLServerContext context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();
@@ -54,6 +53,26 @@ namespace SupermarketChainOracle.DataAccess
         public virtual TEntity GetById(object id)
         {
             return this.dbSet.Find(id);
+        }
+
+        public virtual void Add(TEntity entity)
+        {
+            this.dbSet.Add(entity);
+        }
+
+        public virtual void Update(TEntity entity)
+        {
+            this.dbSet.Attach(entity);
+            this.context.Entry(entity).State = EntityState.Modified;
+        }
+
+        public virtual void Delete(TEntity entity)
+        {
+            if (this.context.Entry(entity).State == EntityState.Detached)
+            {
+                this.dbSet.Attach(entity);
+            }
+            this.dbSet.Remove(entity);
         }
     }
 }

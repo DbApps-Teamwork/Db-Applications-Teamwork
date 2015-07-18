@@ -5,17 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SupermarketChainSQLServer.Data;
+using SupermarketChainSQLServer.DataAccess.Contracts;
 
 namespace SupermarketChainSQLServer.DataAccess
 {
-    public class SupermarketSQLServerContext : DbContext
+    public class SupermarketSQLServerContext : DbContext, ISupermarketSQLServerContext
     {
-        public DbSet<Product> Products { get; set; }
+        public IDbSet<Product> Products { get; set; }
 
-        public DbSet<Vendor> Vendors { get; set; }
+        public IDbSet<Vendor> Vendors { get; set; }
 
-        public DbSet<Measure> Measures { get; set; }
+        public IDbSet<Measure> Measures { get; set; }
 
-        public DbSet<Sale> Sales { get; set; }
+        public IDbSet<Sale> Sales { get; set; }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
+        }
     }
 }

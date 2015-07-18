@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SupermarketChainOracle.Data;
 using SupermarketChainOracle.DataAccess;
 using SupermarketChainOracle.DataAccess.Contracts;
+using SupermarketChainSQLServer.DataAccess;
 
 namespace SupermarketChain
 {
@@ -20,6 +21,12 @@ namespace SupermarketChain
             //{
             //    Console.WriteLine(product.ProductName);
             //}
+
+            // Test data access for SQL Server
+            //var data = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
+            //var products = data.ProductRepository.Get();
+            //Console.WriteLine(products.Count());
+            
         }
     }
 }

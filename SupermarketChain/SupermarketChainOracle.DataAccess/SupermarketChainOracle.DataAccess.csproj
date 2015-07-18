@@ -48,11 +48,8 @@
     <Compile Include="Contracts\IRepository.cs" />
     <Compile Include="Contracts\ISupermarketChainOracleData.cs" />
     <Compile Include="GenericRepository.cs" />
-    <Compile Include="MeasuresRepository.cs" />
-    <Compile Include="ProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupermarketChainOracleData.cs" />
-    <Compile Include="VendorsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

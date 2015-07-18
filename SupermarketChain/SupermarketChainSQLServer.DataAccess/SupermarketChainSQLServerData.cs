@@ -4,20 +4,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SupermarketChainOracle.Data;
-using SupermarketChainOracle.Data.Contracts;
-using SupermarketChainOracle.DataAccess.Contracts;
+using SupermarketChainSQLServer.Data;
+using SupermarketChainSQLServer.DataAccess.Contracts;
 
-namespace SupermarketChainOracle.DataAccess
+namespace SupermarketChainSQLServer.DataAccess
 {
-    public class SupermarketChainOracleData : ISupermarketChainOracleData
+    public class SupermarketChainSQLServerData : ISupermarketChainSQLServerData
     {
-        private ISupermarketOracleEntities context;
+        private ISupermarketSQLServerContext context;
         private IRepository<Product> productRepository;
         private IRepository<Measure> measureRepository;
         private IRepository<Vendor> vendorRepository;
+        private IRepository<Sale> saleRepository;
 
-        public SupermarketChainOracleData(ISupermarketOracleEntities context)
+        public SupermarketChainSQLServerData(ISupermarketSQLServerContext context)
         {
             this.context = context;
         }
@@ -55,6 +55,18 @@ namespace SupermarketChainOracle.DataAccess
                     this.measureRepository = new GenericRepository<Measure>(this.context);
                 }
                 return this.measureRepository;
+            }
+        }
+
+        public IRepository<Sale> SaleRepository
+        {
+            get
+            {
+                if (this.saleRepository == null)
+                {
+                    this.saleRepository = new GenericRepository<Sale>(this.context);
+                }
+                return this.saleRepository;
             }
         }
     }

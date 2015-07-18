@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SupermarketChainOracle.DataAccess.Contracts
+namespace SupermarketChainSQLServer.DataAccess.Contracts
 {
     public interface IRepository<TEntity> where TEntity : class
     {
@@ -13,7 +13,13 @@ namespace SupermarketChainOracle.DataAccess.Contracts
             Expression<Func<TEntity, bool>> filter = null,
             string properties = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null);
-        
+
         TEntity GetById(object id);
+
+        void Add(TEntity entity);
+
+        void Update(TEntity entity);
+
+        void Delete(TEntity entity);
     }
 }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ISupermarketOracleEntities.cs" />
     <Compile Include="Measure.cs">
       <DependentUpon>SupermarketChainOracleContext.tt</DependentUpon>
     </Compile>

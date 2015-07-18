@@ -7,26 +7,35 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using SupermarketChainOracle.Data.Contracts;
+
 namespace SupermarketChainOracle.Data
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class SupermarketOracleEntities : DbContext
+
+    public partial class SupermarketOracleEntities : DbContext, ISupermarketOracleEntities
     {
         public SupermarketOracleEntities()
             : base("name=SupermarketOracleEntities")
         {
+        }
+
+        public IDbSet<Measure> Measures { get; set; }
+
+        public IDbSet<Product> Products { get; set; }
+
+        public IDbSet<Vendor> Vendors { get; set; }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public DbSet<Measure> Measures { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<Vendor> Vendors { get; set; }
     }
 }
