@@ -21,7 +21,9 @@ namespace SupermarketChainSQLServer.DataAccess
         {
             IQueryable<Sale> query = this.dbSet;
 
-            var sales = query.Where(s => EntityFunctions.TruncateTime(s.SaleDate) >= EntityFunctions.TruncateTime(startDate) && EntityFunctions.TruncateTime(s.SaleDate) <= EntityFunctions.TruncateTime(endDate))
+            var sales = query
+                .Where(s => EntityFunctions.TruncateTime(s.SaleDate) >= EntityFunctions.TruncateTime(startDate) && 
+                    EntityFunctions.TruncateTime(s.SaleDate) <= EntityFunctions.TruncateTime(endDate))
                .GroupBy(s => new { s.Product.Vendor.VendorName, DatePart = EntityFunctions.TruncateTime(s.SaleDate) })
                .Select(g => new VendorSalesDto()
                {
@@ -31,6 +33,28 @@ namespace SupermarketChainSQLServer.DataAccess
                })
                .OrderBy(vs => vs.VendorName)
                .ThenBy(vs => vs.Date);
+
+            return sales.ToList();
+        }
+
+        public IEnumerable<AggregatedSalesReport> GetAggregatedSalesReports(DateTime startDate, DateTime endDate)
+        {
+            IQueryable<Sale> query = this.dbSet;
+
+            var sales = query
+                .Where(s => EntityFunctions.TruncateTime(s.SaleDate) >= EntityFunctions.TruncateTime(startDate) &&
+                    EntityFunctions.TruncateTime(s.SaleDate) <= EntityFunctions.TruncateTime(endDate))
+               .Select(s => new AggregatedSalesReport()
+               {
+                   Date = s.SaleDate,
+                   ProductName = s.Product.ProductName,
+                   Location = s.Location,
+                   Quantity = s.Quantity,
+                   UnitPrice = s.Price,
+                   Sum = s.Quantity * s.Price
+               })
+               .OrderBy(s => s.Date)
+               .ThenBy(s => s.ProductName);
 
             return sales.ToList();
         }

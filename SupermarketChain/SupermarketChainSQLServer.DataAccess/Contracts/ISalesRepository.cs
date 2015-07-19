@@ -10,5 +10,7 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
     public interface ISalesRepository : IRepository<Sale>
     {
         IEnumerable<VendorSalesDto> GetSalesByVendor(DateTime startDate, DateTime endDate);
+
+        IEnumerable<AggregatedSalesReport> GetAggregatedSalesReports(DateTime startDate, DateTime endDate);
     }
 }

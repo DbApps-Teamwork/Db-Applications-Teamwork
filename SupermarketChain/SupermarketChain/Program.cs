@@ -58,6 +58,10 @@ namespace SupermarketChain
             //    new XmlWriter(@"C:\Users\ASUS\Desktop\Database-Apps\test.xml")); // Will be taken from the UI
             //xmlGenerator.GenerateSalesReports(salesByVendor);
 
+
+            // Test getting aggregated sales report for task #3
+            //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
+            //var sales = sqlData.SaleRepository.GetAggregatedSalesReports(DateTime.Now, DateTime.Now.AddDays(2));
         }
     }
 }
