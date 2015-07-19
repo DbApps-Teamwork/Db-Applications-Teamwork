@@ -11,3 +11,5 @@ SupermarketChain/SupermarketChainSQLServer.DataAccess/bin
 SupermarketChain/SupermarketChainSQLServer.DataAccess/obj
 SupermarketChain/ExcelSalesReports.DataAccess/bin
 SupermarketChain/ExcelSalesReports.DataAccess/obj
+SupermarketChain/SalesReportsGenerator/bin
+SupermarketChain/SalesReportsGenerator/obj
