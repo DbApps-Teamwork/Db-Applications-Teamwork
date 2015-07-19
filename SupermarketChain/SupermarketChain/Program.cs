@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExcelSalesReports.DataAccess;
+using SalesReportsGenerator;
+using SalesReportsGenerator.Layouts;
+using SalesReportsGenerator.Writers;
 using SupermarketChainOracle.Data;
 using SupermarketChainOracle.DataAccess;
 using SupermarketChainOracle.DataAccess.Contracts;
@@ -31,7 +35,7 @@ namespace SupermarketChain
             //Console.WriteLine(products.Count());
 
 
-            // Test getting Excel reports form zip
+            // Test getting Excel reports from zip
             // After the reports are loaded they need to be mapped from SaleReportsDto to Sale entity
             //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
             //var excelData = new ExcelSalesReportsData();
@@ -50,7 +54,10 @@ namespace SupermarketChain
             // Test getting vendor sales reports for task #4
             //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
             //var salesByVendor = sqlData.SaleRepository.GetSalesByVendor(DateTime.Now, DateTime.Now.AddDays(1));
-            
+            //var xmlGenerator = new Generator(new XmlLayout(),
+            //    new XmlWriter(@"C:\Users\ASUS\Desktop\Database-Apps\test.xml")); // Will be taken from the UI
+            //xmlGenerator.GenerateSalesReports(salesByVendor);
+
         }
     }
 }

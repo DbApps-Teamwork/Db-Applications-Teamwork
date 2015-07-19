@@ -1,0 +1,7 @@
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\obj\Debug\XmlSalesReportsGenerator.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\bin\Debug\XmlSalesReportsGenerator.dll
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\bin\Debug\XmlSalesReportsGenerator.pdb
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\bin\Debug\SupermarketChainSQLServer.Data.dll
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\bin\Debug\SupermarketChainSQLServer.Data.pdb
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\obj\Debug\XmlSalesReportsGenerator.dll
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\XmlSalesReportsGenerator\obj\Debug\XmlSalesReportsGenerator.pdb
