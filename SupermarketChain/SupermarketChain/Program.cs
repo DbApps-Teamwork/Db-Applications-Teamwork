@@ -45,8 +45,12 @@ namespace SupermarketChain
             //    location: s.Location,
             //    date: s.SaleDate
             //    ));
+
+
+            // Test getting vendor sales reports for task #4
+            //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
+            //var salesByVendor = sqlData.SaleRepository.GetSalesByVendor(DateTime.Now, DateTime.Now.AddDays(1));
             
-            //Console.ReadKey();
         }
     }
 }

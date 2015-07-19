@@ -1,3 +1,5 @@
+using SupermarketChainSQLServer.Data;
+
 namespace SupermarketChainSQLServer.DataAccess.Migrations
 {
     using System;
@@ -26,6 +28,36 @@ namespace SupermarketChainSQLServer.DataAccess.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Sales.AddOrUpdate(new Sale()
+            {
+                Quantity = 5,
+                Price = 2,
+                Location = "Aaaa",
+                SaleDate = DateTime.Now,
+                Product = new Product()
+                {
+                    Measure = new Measure() {MeasureName = "kg"},
+                    Price = 1.9m,
+                    ProductName = "Fafli",
+                    Vendor = new Vendor() {VendorName = "Nestle"}
+                }
+            });
+
+            context.Sales.AddOrUpdate(new Sale()
+            {
+                Quantity = 10,
+                Price = 3,
+                Location = "Bbb",
+                SaleDate = DateTime.Now.AddDays(1),
+                Product = new Product()
+                {
+                    Measure = new Measure() { MeasureName = "lt" },
+                    Price = 2.9m,
+                    ProductName = "Rakia",
+                    Vendor = new Vendor() { VendorName = "Bai Ivan" }
+                }
+            });
         }
     }
 }

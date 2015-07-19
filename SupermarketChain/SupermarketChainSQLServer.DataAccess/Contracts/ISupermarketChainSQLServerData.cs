@@ -15,6 +15,6 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
 
         IRepository<Measure> MeasureRepository { get; }
 
-        IRepository<Sale> SaleRepository { get; }
+        ISalesRepository SaleRepository { get; }
     }
 }
