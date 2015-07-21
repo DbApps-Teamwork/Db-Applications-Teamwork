@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExcelSalesReports.DataAccess;
+using ExpenseDataLoader;
+using ExpenseDataLoader.Readers;
 using SalesReportsGenerator;
 using SalesReportsGenerator.Layouts;
 using SalesReportsGenerator.Writers;
@@ -62,6 +64,21 @@ namespace SupermarketChain
             // Test getting aggregated sales report for task #3
             //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
             //var sales = sqlData.SaleRepository.GetAggregatedSalesReports(DateTime.Now, DateTime.Now.AddDays(2));
+
+
+            // Test reading Xml expenses  task #6
+            //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
+            //var path = @"C:\Users\ASUS\Desktop\Database-Apps\Sample-Vendor-Expenses.xml"; // Will be taken from the UI
+            //var expenseLoader = new ExpenseLoader(new XmlExpenseReader(path));
+            //var expensesReports = expenseLoader.LoadExpenses();
+            //var expenses = expensesReports.Select(e => new Expense()
+            //{
+            //    VendorId = sqlData.VendorRepository
+            //        .Get(exp => exp.VendorName.Equals(e.VendorName)).FirstOrDefault().VendorId,
+            //    ExpenseDate = e.ExpenseDate,
+            //    ExpenseSum = e.ExpenseSum
+            //});
+
         }
     }
 }

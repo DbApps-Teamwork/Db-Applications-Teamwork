@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5750E589-B9A0-42DF-9AE0-78833560E1A3}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{9B2A7F3B-DEAF-4E3F-B638-894AE8B51E9C}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SupermarketChain</RootNamespace>
-    <AssemblyName>SupermarketChain</AssemblyName>
+    <RootNamespace>ExpenseDataLoader</RootNamespace>
+    <AssemblyName>ExpenseDataLoader</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,14 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,38 +39,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Contracts\IExpensesReader.cs" />
+    <Compile Include="ExpenseLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Readers\XmlExpenseReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ExcelSalesReports.DataAccess\ExcelSalesReports.DataAccess.csproj">
-      <Project>{52df0b17-0bcb-4de4-a315-d74b8fbf86b1}</Project>
-      <Name>ExcelSalesReports.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ExpenseDataLoader\ExpenseDataLoader.csproj">
-      <Project>{9b2a7f3b-deaf-4e3f-b638-894ae8b51e9c}</Project>
-      <Name>ExpenseDataLoader</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SalesReportsGenerator\SalesReportsGenerator.csproj">
-      <Project>{49727d80-fbc7-40ef-be78-b674c5f2b003}</Project>
-      <Name>SalesReportsGenerator</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SupermarketChainOracle.DataAccess\SupermarketChainOracle.DataAccess.csproj">
-      <Project>{c523dcce-0c60-4590-9419-4bd6908d867a}</Project>
-      <Name>SupermarketChainOracle.DataAccess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SupermarketChainOracle.Data\SupermarketChainOracle.Data.csproj">
-      <Project>{b50d2e39-214e-4fac-be60-0146d0a4d7e5}</Project>
-      <Name>SupermarketChainOracle.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SupermarketChainSQLServer.DataAccess\SupermarketChainSQLServer.DataAccess.csproj">
-      <Project>{5ba1de54-6aa9-4696-ade1-c32985bc3129}</Project>
-      <Name>SupermarketChainSQLServer.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SupermarketChainSQLServer.Data\SupermarketChainSQLServer.Data.csproj">
       <Project>{7acea284-7346-4667-9934-3df89b162ac1}</Project>
       <Name>SupermarketChainSQLServer.Data</Name>
