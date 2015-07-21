@@ -12,6 +12,7 @@ namespace SupermarketChainSQLServer.Data
         public Vendor()
         {
             this.Products = new HashSet<Product>();
+            this.Expenses = new HashSet<Expense>();
         }
 
         public int VendorId { get; set; }
@@ -21,5 +22,7 @@ namespace SupermarketChainSQLServer.Data
         public string VendorName { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+
+        public virtual ICollection<Expense> Expenses { get; set; }
     }
 }

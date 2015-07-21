@@ -19,6 +19,8 @@ namespace SupermarketChainSQLServer.DataAccess
 
         public IDbSet<Sale> Sales { get; set; }
 
+        public IDbSet<Expense> Expenses { get; set; }
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();

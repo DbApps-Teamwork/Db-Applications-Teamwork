@@ -19,6 +19,8 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
 
         IDbSet<Sale> Sales { get; set; }
 
+        IDbSet<Expense> Expenses { get; set; }
+
         int SaveChanges();
 
         DbEntityEntry<TEntity> Entry<TEntity>(TEntity entity) where TEntity : class;
