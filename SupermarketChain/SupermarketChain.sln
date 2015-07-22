@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SalesReportsGenerator", "Sa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseDataLoader", "ExpenseDataLoader\ExpenseDataLoader.csproj", "{9B2A7F3B-DEAF-4E3F-B638-894AE8B51E9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainApp", "SupermarketChainApp\SupermarketChainApp.csproj", "{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{9B2A7F3B-DEAF-4E3F-B638-894AE8B51E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B2A7F3B-DEAF-4E3F-B638-894AE8B51E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B2A7F3B-DEAF-4E3F-B638-894AE8B51E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

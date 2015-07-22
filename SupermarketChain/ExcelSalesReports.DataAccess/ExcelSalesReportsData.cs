@@ -7,11 +7,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Excel;
+using ExcelSalesReports.DataAccess.Contracts;
 using ICSharpCode.SharpZipLib.Zip;
 
 namespace ExcelSalesReports.DataAccess
 {
-    public class ExcelSalesReportsData
+    public class ExcelSalesReportsData : IExcelReportsData
     {
         public IEnumerable<SaleReportDto> GetSalesReports(string archivePath)
         {

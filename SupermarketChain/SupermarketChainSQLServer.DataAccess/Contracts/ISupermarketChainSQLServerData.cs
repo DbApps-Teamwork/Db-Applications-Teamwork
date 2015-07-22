@@ -18,5 +18,7 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
         ISalesRepository SaleRepository { get; }
 
         IRepository<Expense> ExpenseRepository { get; }
+
+        void Save();
     }
 }

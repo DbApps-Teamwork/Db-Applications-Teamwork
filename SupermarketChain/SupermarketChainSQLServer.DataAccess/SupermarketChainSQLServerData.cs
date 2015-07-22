@@ -82,5 +82,10 @@ namespace SupermarketChainSQLServer.DataAccess
                 return this.expenseRepository;
             }
         }
+
+        public void Save()
+        {
+            this.context.SaveChanges();
+        }
     }
 }

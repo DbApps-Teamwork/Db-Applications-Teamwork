@@ -1,0 +1,48 @@
+﻿<Window x:Class="SupermarketChainApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <TabControl>
+            <TabItem DataContext="{Binding Tabs[0]}" Header="Transfer data">
+                <StackPanel>
+                    <Button Command="{Binding TransferDataCommand}">
+                        Transfer data
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem DataContext="{Binding Tabs[1]}" Header="Load Excel data">
+                <StackPanel>
+                    <Button Command="{Binding OpenFileDialogCommand}">
+                        Select file
+                    </Button>
+                    <TextBlock>Path:</TextBlock>
+                    <TextBlock Text="{Binding Path}"/>
+                    <Button Command="{Binding LoadReportsCommand}">
+                        Import Excel reports
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                    <ListBox ItemsSource="{Binding UnexistingProducts}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </TabItem>
+            
+            <!--<TabItem DataContext="{Binding Tabs[2]}" Header="Generate PDF reports">
+
+            </TabItem>
+            <TabItem DataContext="{Binding Tabs[3]}" Header="Generate XML reports">
+
+            </TabItem>
+            <TabItem DataContext="{Binding Tabs[4]}" Header="Load expense XML data">
+
+            </TabItem>-->
+        </TabControl>
+    </StackPanel>
+</Window>
