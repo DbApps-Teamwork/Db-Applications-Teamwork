@@ -8,18 +8,18 @@ using SupermarketChainSQLServer.Data;
 
 namespace ExpenseDataLoader
 {
-    public class ExpenseLoader
+    public class ExpenseLoader : IExpenseLoader
     {
-        private IExpensesReader reader;
-
         public ExpenseLoader(IExpensesReader reader)
         {
-            this.reader = reader;
+            this.Reader = reader;
         }
+
+        public IExpensesReader Reader { get; set; }
 
         public IEnumerable<ExpenseDto> LoadExpenses()
         {
-            var expenses = this.reader.ReadExpenses();
+            var expenses = this.Reader.ReadExpenses();
             return expenses;
         }
     }

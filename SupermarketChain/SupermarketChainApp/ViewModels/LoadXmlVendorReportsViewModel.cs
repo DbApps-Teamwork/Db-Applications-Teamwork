@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ExcelSalesReports.DataAccess.Contracts;
+using ExpenseDataLoader.Contracts;
+using ExpenseDataLoader.Readers;
 using Microsoft.Win32;
 using SupermarketChainApp.Commands;
 using SupermarketChainSQLServer.Data;
@@ -15,25 +16,26 @@ using SupermarketChainSQLServer.DataAccess.Contracts;
 
 namespace SupermarketChainApp.ViewModels
 {
-    public class LoadExcelReportsViewModel : ViewModelBase
+    public class LoadXmlVendorReportsViewModel : ViewModelBase
     {
-        private readonly ISupermarketChainSQLServerData sqlServerData;
-        private readonly IExcelReportsData excelReportsData;
-        private ICommand loadReportsCommand;
+        private ISupermarketChainSQLServerData sqlServerData;
+        private IExpenseLoader expenseLoader;
         private ICommand openFileDialogCommand;
+        private ICommand loadVendorReportsCommand;
         private bool loadingReports;
         private string path;
 
-        public LoadExcelReportsViewModel(
+        public LoadXmlVendorReportsViewModel(
             ISupermarketChainSQLServerData sqlServerData,
-            IExcelReportsData excelReportsData)
+            IExpenseLoader expenseLoader)
         {
             this.sqlServerData = sqlServerData;
-            this.excelReportsData = excelReportsData;
-            this.UnexistingProducts = new ObservableCollection<string>();
+            this.expenseLoader = expenseLoader;
+            this.loadingReports = false;
+            this.UnexistingVendors = new ObservableCollection<string>();
         }
 
-        public ObservableCollection<string> UnexistingProducts { get; set; }
+        public ObservableCollection<string> UnexistingVendors { get; set; }
 
         public string Path
         {
@@ -52,19 +54,6 @@ namespace SupermarketChainApp.ViewModels
             }
         }
 
-        public ICommand LoadReportsCommand
-        {
-            get
-            {
-                if (this.loadReportsCommand == null)
-                {
-                    this.loadReportsCommand = new RelayCommand(
-                        this.LoadReports, this.CanLoadReports);
-                }
-                return this.loadReportsCommand;
-            }
-        }
-
         public ICommand OpenFileDialogCommand
         {
             get
@@ -77,33 +66,45 @@ namespace SupermarketChainApp.ViewModels
             }
         }
 
-        private void LoadReports()
+        public ICommand LoadVendorReportsCommand
         {
-            this.loadingReports = true;
-            this.Message = "Importing reports, please wait...";
-
-            var reports = this.excelReportsData.GetSalesReports(this.Path);
-            foreach (var report in reports)
+            get
             {
-                var product = this.sqlServerData.ProductRepository
-                    .Get(p => p.ProductName.Equals(report.ProductName))
-                    .FirstOrDefault();
-
-                if (product != null)
+                if (this.loadVendorReportsCommand == null)
                 {
-                    this.sqlServerData.SaleRepository.Add(new Sale()
+                    this.loadVendorReportsCommand = new RelayCommand(
+                        this.LoadVendorReports, this.CanLoadReports);
+                }
+                return this.loadVendorReportsCommand;
+            }
+        }
+
+        private void LoadVendorReports()
+        {
+            this.Message = "Importing vendor expenses reports, please wait...";
+            this.loadingReports = false;
+
+            this.expenseLoader.Reader.Path = this.Path;
+            var expensesReports = this.expenseLoader.LoadExpenses();
+
+            foreach (var expense in expensesReports)
+            {
+                var vendor = sqlServerData.VendorRepository
+                    .Get(exp => exp.VendorName.Equals(expense.VendorName)).FirstOrDefault();
+
+                if (vendor != null)
+                {
+                    this.sqlServerData.ExpenseRepository.Add(new Expense()
                     {
-                        Location = report.Location,
-                        Price = report.UnitPrice,
-                        Quantity = report.Quantity,
-                        SaleDate = report.SaleDate,
-                        ProductId = product.ProductId
+                        VendorId = vendor.VendorId,
+                        ExpenseDate = expense.ExpenseDate,
+                        ExpenseSum = expense.ExpenseSum
                     });
                 }
                 else
                 {
-                    this.UnexistingProducts.Add(
-                        String.Format("Product with name {0} is not existing", report.ProductName));
+                    this.UnexistingVendors.Add(
+                        String.Format("Vendor with name: {0} is not existing", expense.VendorName));
                 }
             }
 

@@ -34,15 +34,45 @@
                 </StackPanel>
             </TabItem>
             
-            <!--<TabItem DataContext="{Binding Tabs[2]}" Header="Generate PDF reports">
-
+            <TabItem DataContext="{Binding Tabs[2]}" Header="Load vendor expenses">
+                <StackPanel>
+                    <Button Command="{Binding OpenFileDialogCommand}">
+                        Select file
+                    </Button>
+                    <TextBlock>Path:</TextBlock>
+                    <TextBlock Text="{Binding Path}"/>
+                    <Button Command="{Binding LoadVendorReportsCommand}">
+                        Load expenses data
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                    <ListBox ItemsSource="{Binding UnexistingVendors}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
             </TabItem>
+            
             <TabItem DataContext="{Binding Tabs[3]}" Header="Generate XML reports">
-
+                <StackPanel>
+                    <Button Command="{Binding OpenFileDialogCommand}">
+                        Select file
+                    </Button>
+                    <TextBlock>Path:</TextBlock>
+                    <TextBlock Text="{Binding Path}"/>
+                    <TextBox Text="{Binding FileName}"/>
+                    <TextBlock>Start date:</TextBlock>
+                    <DatePicker SelectedDate="{Binding StartDate}"/>
+                    <TextBlock>End date:</TextBlock>
+                    <DatePicker SelectedDate="{Binding EndDate}"/>
+                    <Button Command="{Binding GenerateReportsCommand}">
+                        Generate reports
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                </StackPanel>
             </TabItem>
-            <TabItem DataContext="{Binding Tabs[4]}" Header="Load expense XML data">
-
-            </TabItem>-->
         </TabControl>
     </StackPanel>
 </Window>

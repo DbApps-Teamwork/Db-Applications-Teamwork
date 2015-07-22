@@ -39,12 +39,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ISalesReportsGenerator.cs" />
     <Compile Include="Contracts\ISalesReportsLayout.cs" />
     <Compile Include="Contracts\ISalesReportsWriter.cs" />
     <Compile Include="Generator.cs" />
     <Compile Include="Layouts\XmlLayout.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Writers\XmlWriter.cs" />
+    <Compile Include="Writers\XmlSalesReportsWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SupermarketChainSQLServer.Data\SupermarketChainSQLServer.Data.csproj">

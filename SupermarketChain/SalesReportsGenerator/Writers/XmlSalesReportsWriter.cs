@@ -9,14 +9,14 @@ using SalesReportsGenerator.Contracts;
 
 namespace SalesReportsGenerator.Writers
 {
-    public class XmlWriter : ISalesReportsWriter
+    public class XmlSalesReportsWriter : ISalesReportsWriter
     {
-        public XmlWriter(string path)
+        public XmlSalesReportsWriter(string path = "")
         {
             this.Path = path;
         }
 
-        public string Path { get; private set; }
+        public string Path { get; set; }
 
         public void WriteSalesReports(string reports)
         {

@@ -56,7 +56,6 @@ namespace SupermarketChainApp.ViewModels
             {
                 this.sqlServerData.Save();
                 this.Message = "Transfer successful!";
-                this.transferingData = false;
             }
             catch (InvalidOperationException ex)
             {

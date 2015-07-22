@@ -9,5 +9,7 @@ namespace SalesReportsGenerator.Contracts
     public interface ISalesReportsWriter
     {
         void WriteSalesReports(string reports);
+
+        string Path { get; set; }
     }
 }

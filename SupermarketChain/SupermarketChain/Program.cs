@@ -57,7 +57,7 @@ namespace SupermarketChain
             //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
             //var salesByVendor = sqlData.SaleRepository.GetSalesByVendor(DateTime.Now, DateTime.Now.AddDays(1));
             //var xmlGenerator = new Generator(new XmlLayout(),
-            //    new XmlWriter(@"C:\Users\ASUS\Desktop\Database-Apps\test.xml")); // Will be taken from the UI
+            //    new XmlSalesReportsWriter(@"C:\Users\ASUS\Desktop\Database-Apps\test.xml")); // Will be taken from the UI
             //xmlGenerator.GenerateSalesReports(salesByVendor);
 
 

@@ -15,13 +15,13 @@ namespace ExpenseDataLoader.Readers
     {
         private const string DefaultExpenseDateFormat = "MMM-yyyy";
 
-        public XmlExpenseReader(string path, string dateFormat = DefaultExpenseDateFormat)
+        public XmlExpenseReader(string path = "", string dateFormat = DefaultExpenseDateFormat)
         {
             this.Path = path;
             this.ExpenseDateFormat = dateFormat;
         }
 
-        public string Path { get; private set; }
+        public string Path { get; set; }
 
         public string ExpenseDateFormat { get; private set; }
 

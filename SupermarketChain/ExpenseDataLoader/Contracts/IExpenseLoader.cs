@@ -7,10 +7,10 @@ using SupermarketChainSQLServer.Data;
 
 namespace ExpenseDataLoader.Contracts
 {
-    public interface IExpensesReader
+    public interface IExpenseLoader
     {
-        IEnumerable<ExpenseDto> ReadExpenses();
+        IEnumerable<ExpenseDto> LoadExpenses();
 
-        string Path { get; set; }
+        IExpensesReader Reader { get; set; }
     }
 }

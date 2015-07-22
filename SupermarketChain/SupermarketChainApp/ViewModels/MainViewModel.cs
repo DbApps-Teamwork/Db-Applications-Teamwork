@@ -10,12 +10,14 @@ namespace SupermarketChainApp.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
-        public MainViewModel(ISupermarketChainSQLServerData sqlServerData)
+        public MainViewModel()
         {
             this.Tabs = new ObservableCollection<ViewModelBase>()
             {
                 ObjectFactory.Get<ReplicateOracleDataViewModel>(),
-                ObjectFactory.Get<LoadExcelReportsViewModel>()
+                ObjectFactory.Get<LoadExcelReportsViewModel>(),
+                ObjectFactory.Get<LoadXmlVendorReportsViewModel>(),
+                ObjectFactory.Get<GenerateSalesReportsViewModel>()
             };
         }
 

@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using ExcelSalesReports.DataAccess;
 using ExcelSalesReports.DataAccess.Contracts;
+using ExpenseDataLoader;
+using ExpenseDataLoader.Contracts;
+using ExpenseDataLoader.Readers;
 using Ninject.Modules;
+using SalesReportsGenerator;
+using SalesReportsGenerator.Contracts;
+using SalesReportsGenerator.Layouts;
+using SalesReportsGenerator.Writers;
 using SupermarketChainOracle.Data;
 using SupermarketChainOracle.Data.Contracts;
 using SupermarketChainOracle.DataAccess;
@@ -27,6 +35,12 @@ namespace SupermarketChainApp.NinjectModules
 
             Bind<IExcelReportsData>().To<ExcelSalesReportsData>();
 
+            Bind<IExpenseLoader>().To<ExpenseLoader>();
+            Bind<IExpensesReader>().To<XmlExpenseReader>();
+
+            Bind<ISalesReportsLayout>().To<XmlLayout>();
+            Bind<ISalesReportsWriter>().To<XmlSalesReportsWriter>();
+            Bind<ISalesReportsGenerator>().To<Generator>();
         }
     }
 }

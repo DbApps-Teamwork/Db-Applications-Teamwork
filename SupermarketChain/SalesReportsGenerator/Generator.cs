@@ -9,21 +9,22 @@ using SupermarketChainSQLServer.Data;
 
 namespace SalesReportsGenerator
 {
-    public class Generator
+    public class Generator : ISalesReportsGenerator
     {
         private ISalesReportsLayout layout;
-        private ISalesReportsWriter writer;
 
         public Generator(ISalesReportsLayout layout, ISalesReportsWriter writer)
         {
             this.layout = layout;
-            this.writer = writer;
+            this.Writer = writer;
         }
+
+        public ISalesReportsWriter Writer { get; set; }
 
         public void GenerateSalesReports(IEnumerable<VendorSalesDto> salesReports)
         {
             var reports = this.layout.PopulateLayout(salesReports);
-            this.writer.WriteSalesReports(reports);
+            this.Writer.WriteSalesReports(reports);
         }
     }
 }

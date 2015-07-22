@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IExpenseLoader.cs" />
     <Compile Include="Contracts\IExpensesReader.cs" />
     <Compile Include="ExpenseLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
