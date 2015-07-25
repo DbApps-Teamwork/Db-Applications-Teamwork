@@ -104,7 +104,7 @@ namespace SupermarketChainApp.ViewModels
                 else
                 {
                     this.UnexistingVendors.Add(
-                        String.Format("Vendor with name: {0} is not existing", expense.VendorName));
+                        String.Format("Vendor with name: {0} does not exists", expense.VendorName));
                 }
             }
 

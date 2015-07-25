@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseDataLoader", "Expens
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainApp", "SupermarketChainApp\SupermarketChainApp.csproj", "{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainMySQL.Data", "SupermarketChainMySQL.Data\SupermarketChainMySQL.Data.csproj", "{47D49939-B6D6-4E03-9478-2125EA1E79E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B97198C3-3214-4095-BEEA-E7FF31E8E7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47D49939-B6D6-4E03-9478-2125EA1E79E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47D49939-B6D6-4E03-9478-2125EA1E79E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47D49939-B6D6-4E03-9478-2125EA1E79E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47D49939-B6D6-4E03-9478-2125EA1E79E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

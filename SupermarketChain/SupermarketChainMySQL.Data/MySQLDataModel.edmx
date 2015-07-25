@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SupermarketChainModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="products">
+          <Key>
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="vendor_id" Type="int" Nullable="false" />
+          <Property Name="income" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vendors">
+          <Key>
+            <PropertyRef Name="vendor_id" />
+          </Key>
+          <Property Name="vendor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vendor_name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="expenses" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_products_vendors_vendor_id">
+          <End Role="vendors" Type="Self.vendors" Multiplicity="1" />
+          <End Role="products" Type="Self.products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vendors">
+              <PropertyRef Name="vendor_id" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="vendor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SupermarketChainModelStoreContainer">
+          <EntitySet Name="products" EntityType="Self.products" Schema="supermarket_chain" store:Type="Tables" />
+          <EntitySet Name="vendors" EntityType="Self.vendors" Schema="supermarket_chain" store:Type="Tables" />
+          <AssociationSet Name="fk_products_vendors_vendor_id" Association="Self.fk_products_vendors_vendor_id">
+            <End Role="vendors" EntitySet="vendors" />
+            <End Role="products" EntitySet="products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SupermarketChainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VendorId" Type="Int32" Nullable="false" />
+          <Property Name="Income" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Vendor" Relationship="Self.fk_products_vendors_vendor_id" FromRole="products" ToRole="vendors" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorId" />
+          </Key>
+          <Property Name="VendorId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VendorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Expenses" Type="Decimal" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.fk_products_vendors_vendor_id" FromRole="vendors" ToRole="products" />
+        </EntityType>
+        <Association Name="fk_products_vendors_vendor_id">
+          <End Role="vendors" Type="SupermarketChainModel.Vendor" Multiplicity="1" />
+          <End Role="products" Type="SupermarketChainModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vendors">
+              <PropertyRef Name="VendorId" />
+            </Principal>
+            <Dependent Role="products">
+              <PropertyRef Name="VendorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SupermarketChainEntitiesMySQL" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="SupermarketChainModel.Product" />
+          <EntitySet Name="Vendors" EntityType="SupermarketChainModel.Vendor" />
+          <AssociationSet Name="fk_products_vendors_vendor_id" Association="Self.fk_products_vendors_vendor_id">
+            <End Role="vendors" EntitySet="Vendors" />
+            <End Role="products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SupermarketChainModelStoreContainer" CdmEntityContainer="SupermarketChainEntitiesMySQL">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SupermarketChainModel.Product">
+              <MappingFragment StoreEntitySet="products">
+                <ScalarProperty Name="ProductId" ColumnName="product_id" />
+                <ScalarProperty Name="ProductName" ColumnName="product_name" />
+                <ScalarProperty Name="VendorId" ColumnName="vendor_id" />
+                <ScalarProperty Name="Income" ColumnName="income" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="SupermarketChainModel.Vendor">
+              <MappingFragment StoreEntitySet="vendors">
+                <ScalarProperty Name="VendorId" ColumnName="vendor_id" />
+                <ScalarProperty Name="VendorName" ColumnName="vendor_name" />
+                <ScalarProperty Name="Expenses" ColumnName="expenses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

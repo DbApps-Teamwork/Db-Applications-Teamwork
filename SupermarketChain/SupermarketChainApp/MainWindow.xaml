@@ -58,10 +58,11 @@
             <TabItem DataContext="{Binding Tabs[3]}" Header="Generate XML reports">
                 <StackPanel>
                     <Button Command="{Binding OpenFileDialogCommand}">
-                        Select file
+                        Select folder
                     </Button>
                     <TextBlock>Path:</TextBlock>
                     <TextBlock Text="{Binding Path}"/>
+                    <TextBlock>File name:</TextBlock>
                     <TextBox Text="{Binding FileName}"/>
                     <TextBlock>Start date:</TextBlock>
                     <DatePicker SelectedDate="{Binding StartDate}"/>

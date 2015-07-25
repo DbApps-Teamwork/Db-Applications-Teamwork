@@ -103,7 +103,7 @@ namespace SupermarketChainApp.ViewModels
                 else
                 {
                     this.UnexistingProducts.Add(
-                        String.Format("Product with name {0} is not existing", report.ProductName));
+                        String.Format("Product with name {0} does not exists", report.ProductName));
                 }
             }
 

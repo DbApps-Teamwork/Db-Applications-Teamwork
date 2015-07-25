@@ -9,6 +9,7 @@ using Microsoft.Win32;
 using SalesReportsGenerator.Contracts;
 using SupermarketChainApp.Commands;
 using SupermarketChainSQLServer.DataAccess.Contracts;
+using WinForms = System.Windows.Forms;
 
 namespace SupermarketChainApp.ViewModels
 {
@@ -149,9 +150,9 @@ namespace SupermarketChainApp.ViewModels
 
         private void FileDialog()
         {
-            var dialog = new OpenFileDialog();
+            var dialog = new WinForms.FolderBrowserDialog();
             dialog.ShowDialog();
-            this.Path = dialog.FileName;
+            this.Path = dialog.SelectedPath;
         }
     }
 }
