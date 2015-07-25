@@ -14,6 +14,10 @@ using SalesReportsGenerator;
 using SalesReportsGenerator.Contracts;
 using SalesReportsGenerator.Layouts;
 using SalesReportsGenerator.Writers;
+using SupermarketChainMySQL.Data;
+using SupermarketChainMySQL.Data.Contracts;
+using SupermarketChainMySQL.DataAccess;
+using SupermarketChainMySQL.DataAccess.Contracts;
 using SupermarketChainOracle.Data;
 using SupermarketChainOracle.Data.Contracts;
 using SupermarketChainOracle.DataAccess;
@@ -41,6 +45,9 @@ namespace SupermarketChainApp.NinjectModules
             Bind<ISalesReportsLayout>().To<XmlLayout>();
             Bind<ISalesReportsWriter>().To<XmlSalesReportsWriter>();
             Bind<ISalesReportsGenerator>().To<Generator>();
+
+            Bind<ISupermarketMySQLEntities>().To<SupermarketChainEntitiesMySQL>();
+            Bind<ISupermarketChainMySQLData>().To<SupermarketChainMySQLData>();
         }
     }
 }

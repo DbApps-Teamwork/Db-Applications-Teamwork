@@ -67,6 +67,14 @@
       <Project>{49727d80-fbc7-40ef-be78-b674c5f2b003}</Project>
       <Name>SalesReportsGenerator</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SupermarketChainMySQL.DataAccess\SupermarketChainMySQL.DataAccess.csproj">
+      <Project>{50abe584-9d74-4eb8-9a69-cd35bfd0b91b}</Project>
+      <Name>SupermarketChainMySQL.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SupermarketChainMySQL.Data\SupermarketChainMySQL.Data.csproj">
+      <Project>{47d49939-b6d6-4e03-9478-2125ea1e79e2}</Project>
+      <Name>SupermarketChainMySQL.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SupermarketChainOracle.DataAccess\SupermarketChainOracle.DataAccess.csproj">
       <Project>{c523dcce-0c60-4590-9419-4bd6908d867a}</Project>
       <Name>SupermarketChainOracle.DataAccess</Name>

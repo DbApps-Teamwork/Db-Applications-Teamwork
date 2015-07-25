@@ -10,6 +10,8 @@ using ExpenseDataLoader.Readers;
 using SalesReportsGenerator;
 using SalesReportsGenerator.Layouts;
 using SalesReportsGenerator.Writers;
+using SupermarketChainMySQL.Data;
+using SupermarketChainMySQL.DataAccess;
 using SupermarketChainOracle.Data;
 using SupermarketChainOracle.DataAccess;
 using SupermarketChainOracle.DataAccess.Contracts;
@@ -33,10 +35,10 @@ namespace SupermarketChain
 
             // Test data access for SQL Server
             //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
-            //var products = data.ProductRepository.Get();
+            //var products = sqlData.ProductRepository.Get();
             //Console.WriteLine(products.Count());
 
-
+            
             // Test getting Excel reports from zip
             // After the reports are loaded they need to be mapped from SaleReportsDto to Sale entity
             //var sqlData = new SupermarketChainSQLServerData(new SupermarketSQLServerContext());
@@ -78,6 +80,15 @@ namespace SupermarketChain
             //    ExpenseDate = e.ExpenseDate,
             //    ExpenseSum = e.ExpenseSum
             //});
+
+
+            // Test MySQL data access
+            //var mysqlData = new SupermarketChainMySQLData(new SupermarketChainEntitiesMySQL());
+            //var products = mysqlData.ProductRepository.Get();    
+            //foreach (var product in products)
+            //{
+            //    Console.WriteLine(product.ProductName);
+            //}
 
         }
     }
