@@ -9,7 +9,7 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
 {
     public interface ISupermarketChainSQLServerData
     {
-        IRepository<Product> ProductRepository { get; }
+        IProductsRepository ProductRepository { get; }
 
         IVendorRepository VendorRepository { get; }
 

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Microsoft.Win32;
 using SalesReportsGenerator.Contracts;
 using SupermarketChainApp.Commands;
 using SupermarketChainSQLServer.DataAccess.Contracts;
@@ -13,9 +11,8 @@ using WinForms = System.Windows.Forms;
 
 namespace SupermarketChainApp.ViewModels
 {
-    public class GenerateSalesReportsViewModel : ViewModelBase
+    public class GeneratePDFReportsViewModel : ViewModelBase
     {
-        private ISalesReportsGenerator generator;
         private ISupermarketChainSQLServerData sqlServerData;
         private ICommand openFileDialogCommand;
         private ICommand generateReportsCommand;
@@ -25,12 +22,12 @@ namespace SupermarketChainApp.ViewModels
         private string fileName;
         private bool generatingReports;
 
-        public GenerateSalesReportsViewModel(
-            ISupermarketChainSQLServerData sqlServerData, 
-            ISalesReportsGenerator generator)
+        public GeneratePDFReportsViewModel(
+            ISupermarketChainSQLServerData sqlServerData
+            )
         {
             this.sqlServerData = sqlServerData;
-            this.generator = generator;
+
             this.generatingReports = false;
             this.StartDate = DateTime.Now;
             this.EndDate = DateTime.Now;
@@ -134,9 +131,9 @@ namespace SupermarketChainApp.ViewModels
             this.generatingReports = true;
             this.Message = "Generating reports, please wait...";
 
-            var salesByVendor = this.sqlServerData.SaleRepository.GetSalesByVendor(this.StartDate, this.EndDate);
-            this.generator.Writer.Path = this.Path + "\\" + this.FileName;
-            this.generator.GenerateSalesReports(salesByVendor);
+            var reports = this.sqlServerData.SaleRepository.GetAggregatedSalesReports(this.StartDate, this.EndDate);
+            // this.generator.Writer.Path = this.Path + "\\" + this.FileName;
+            // this.generator.GenerateSalesReports(salesByVendor);
 
             this.Message = "Reports generated successfully!";
             this.generatingReports = false;

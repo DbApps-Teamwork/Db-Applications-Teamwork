@@ -10,8 +10,8 @@ namespace SupermarketChainSQLServer.Data
     {
         public string ProductName { get; set; }
 
-        public int VendorId { get; set; }
-
         public decimal Incomes { get; set; }
+
+        public string VendorName { get; set; }
     }
 }

@@ -4,7 +4,7 @@
         Title="MainWindow" Height="350" Width="525">
     <StackPanel>
         <TabControl>
-            <TabItem DataContext="{Binding Tabs[0]}" Header="Transfer data">
+            <TabItem DataContext="{Binding Tabs[0]}" Header="Transfer data to SQL Server">
                 <StackPanel>
                     <Button Command="{Binding TransferDataCommand}">
                         Transfer data
@@ -34,7 +34,7 @@
                 </StackPanel>
             </TabItem>
             
-            <TabItem DataContext="{Binding Tabs[2]}" Header="Load vendor expenses">
+            <TabItem DataContext="{Binding Tabs[2]}" Header="Load XML vendor expenses">
                 <StackPanel>
                     <Button Command="{Binding OpenFileDialogCommand}">
                         Select file
@@ -56,6 +56,35 @@
             </TabItem>
             
             <TabItem DataContext="{Binding Tabs[3]}" Header="Generate XML reports">
+                <StackPanel>
+                    <Button Command="{Binding OpenFileDialogCommand}">
+                        Select folder
+                    </Button>
+                    <TextBlock>Path:</TextBlock>
+                    <TextBlock Text="{Binding Path}"/>
+                    <TextBlock>File name:</TextBlock>
+                    <TextBox Text="{Binding FileName}"/>
+                    <TextBlock>Start date:</TextBlock>
+                    <DatePicker SelectedDate="{Binding StartDate}"/>
+                    <TextBlock>End date:</TextBlock>
+                    <DatePicker SelectedDate="{Binding EndDate}"/>
+                    <Button Command="{Binding GenerateReportsCommand}">
+                        Generate reports
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                </StackPanel>
+            </TabItem>
+           
+            <TabItem DataContext="{Binding Tabs[4]}" Header="Transfer data to MySQL">
+                <StackPanel>
+                    <Button Command="{Binding TransferDataCommand}">
+                        Transfer data
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem DataContext="{Binding Tabs[5]}" Header="Generate PDF reports">
                 <StackPanel>
                     <Button Command="{Binding OpenFileDialogCommand}">
                         Select folder

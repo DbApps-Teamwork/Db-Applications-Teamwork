@@ -21,7 +21,7 @@ namespace SupermarketChainSQLServer.DataAccess
             var products = this.context.Products.Select(p => new ProductDto()
             {
                 ProductName = p.ProductName,
-                VendorId = p.VendorId,
+                VendorName = p.Vendor.VendorName,
                 Incomes = p.Sales.Sum(s => s.Price * s.Quantity)
             });
 

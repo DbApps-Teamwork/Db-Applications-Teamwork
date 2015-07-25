@@ -9,6 +9,6 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
 {
     public interface IProductsRepository : IRepository<Product>
     {
-        
+        IEnumerable<ProductDto> GetProductsWithIncomes();
     }
 }

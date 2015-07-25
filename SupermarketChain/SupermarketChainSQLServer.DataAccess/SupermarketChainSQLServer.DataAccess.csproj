@@ -52,6 +52,7 @@
     <Compile Include="Contracts\IVendorRepository.cs" />
     <Compile Include="GenericRepository.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProductsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SalesRepository.cs" />
     <Compile Include="SupermarketChainSQLServerData.cs" />

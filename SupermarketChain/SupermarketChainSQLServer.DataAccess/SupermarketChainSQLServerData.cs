@@ -12,7 +12,7 @@ namespace SupermarketChainSQLServer.DataAccess
     public class SupermarketChainSQLServerData : ISupermarketChainSQLServerData
     {
         private ISupermarketSQLServerContext context;
-        private IRepository<Product> productRepository;
+        private IProductsRepository productRepository;
         private IRepository<Measure> measureRepository;
         private IVendorRepository vendorRepository;
         private ISalesRepository saleRepository;
@@ -23,13 +23,13 @@ namespace SupermarketChainSQLServer.DataAccess
             this.context = context;
         }
 
-        public IRepository<Product> ProductRepository
+        public IProductsRepository ProductRepository
         {
             get
             {
                 if (this.productRepository == null)
                 {
-                    this.productRepository = new GenericRepository<Product>(this.context);
+                    this.productRepository = new ProductsRepository(this.context);
                 }
                 return this.productRepository;
             }

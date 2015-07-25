@@ -46,14 +46,15 @@ namespace SupermarketChainApp.ViewModels
 
         private void TransferData()
         {
-            this.transferingData = true;
-            this.Message = "Transfering data, please wait...";
-            this.TransferMeasures();
-            this.TransferVendors();
-            this.TransferProducts();
-
             try
             {
+                this.transferingData = true;
+                this.Message = "Transfering data, please wait...";
+                this.TransferMeasures();
+                this.TransferVendors();
+                this.sqlServerData.Save();
+                this.TransferProducts();
+            
                 this.sqlServerData.Save();
                 this.Message = "Transfer successful!";
             }

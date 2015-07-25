@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using SupermarketChainApp.Commands;
+using SupermarketChainMySQL.Data;
 using SupermarketChainMySQL.DataAccess.Contracts;
 using SupermarketChainOracle.DataAccess.Contracts;
 using SupermarketChainSQLServer.DataAccess.Contracts;
@@ -45,14 +46,15 @@ namespace SupermarketChainApp.ViewModels
 
         private void TransferData()
         {
-            this.transferingData = true;
-            this.Message = "Transfering data, please wait...";
-            this.TransferVendors();
-            this.TransferProducts();
-
             try
             {
-                this.sqlServerData.Save();
+                this.transferingData = true;
+                this.Message = "Transfering data, please wait...";
+                this.TransferVendors();
+                this.mysqlData.Save();
+                this.TransferProducts();
+ 
+                this.mysqlData.Save();
                 this.Message = "Transfer successful!";
             }
             catch (InvalidOperationException ex)
@@ -79,12 +81,55 @@ namespace SupermarketChainApp.ViewModels
 
         private void TransferVendors()
         {
-            
+            var vendors = this.sqlServerData.VendorRepository.GetVendorsWithExpenses();
+
+            foreach (var vendor in vendors)
+            {
+                var existingVendor = this.mysqlData.VendorRepository.Get(
+                    v => v.VendorName.Equals(vendor.VendorName)).FirstOrDefault();
+
+                if (existingVendor == null)
+                {
+                    this.mysqlData.VendorRepository.Add(new Vendor()
+                    {
+                        VendorName = vendor.VendorName,
+                        Expenses = vendor.Expenses
+                    });
+                }
+                else if(!existingVendor.Expenses.Equals(vendor.Expenses))
+                {
+                    existingVendor.Expenses = vendor.Expenses;
+                    this.mysqlData.VendorRepository.Update(existingVendor);
+                }
+            }
         }
 
         private void TransferProducts()
         {
-            
+            var products = this.sqlServerData.ProductRepository.GetProductsWithIncomes();
+
+            foreach (var product in products)
+            {
+                var existingProduct = this.mysqlData.ProductRepository.Get(
+                    p => p.ProductName.Equals(product.ProductName)).FirstOrDefault();
+
+                if (existingProduct == null)
+                {
+                    this.mysqlData.ProductRepository.Add(new Product()
+                    {
+                        ProductName = product.ProductName,
+                        VendorId = this.mysqlData.VendorRepository
+                            .Get(v => v.VendorName.Equals(product.VendorName))
+                            .FirstOrDefault().VendorId,
+                        Income = product.Incomes
+                    });
+                } 
+                else if (!existingProduct.Income.Equals(product.Incomes))
+                {
+                    existingProduct.Income = product.Incomes;
+                    this.mysqlData.ProductRepository.Update(existingProduct);
+                }
+            }
         }
 
         private bool CanTransferData()

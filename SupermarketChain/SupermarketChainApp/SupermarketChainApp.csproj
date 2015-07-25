@@ -64,6 +64,7 @@
     </ApplicationDefinition>
     <Compile Include="NinjectModules\DataModule.cs" />
     <Compile Include="ObjectFactory.cs" />
+    <Compile Include="ViewModels\GeneratePDFReportsViewModel.cs" />
     <Compile Include="ViewModels\GenerateSalesReportsViewModel.cs" />
     <Compile Include="ViewModels\LoadExcelReportsViewModel.cs" />
     <Compile Include="ViewModels\LoadXmlVendorReportsViewModel.cs" />
