@@ -2,6 +2,9 @@
 {
     using Newtonsoft.Json;
 
+
+    //Created class to store information in required input
+    //JsonProperty will save the value under provided key name
     public class JsonReport
     {
 
