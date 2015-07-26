@@ -1,0 +1,20 @@
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\GenerateJsonReports.exe.config
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\obj\Debug\GenerateJsonReports.csprojResolveAssemblyReference.cache
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\GenerateJsonReports.exe
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\GenerateJsonReports.pdb
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\EntityFramework.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\EntityFramework.SqlServer.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\MongoDB.Bson.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\MongoDB.Driver.Core.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\MongoDB.Driver.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\Newtonsoft.Json.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\EntityFramework.xml
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\EntityFramework.SqlServer.xml
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\MongoDB.Bson.xml
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\MongoDB.Driver.xml
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\bin\Debug\Newtonsoft.Json.xml
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\obj\Debug\GenerateJsonReports.exe
+\\psf\Home\Documents\Visual Studio 2013\Projects\SupermarketChain\GenerateJsonReports\obj\Debug\GenerateJsonReports.pdb
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\GenerateJsonReports\bin\Debug\GenerateJsonReports.exe.config
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\GenerateJsonReports\obj\Debug\GenerateJsonReports.exe
+C:\Users\ASUS\Documents\SoftUni\Db-Apps-Teamwork\Db-Applications-Teamwork\SupermarketChain\GenerateJsonReports\obj\Debug\GenerateJsonReports.pdb

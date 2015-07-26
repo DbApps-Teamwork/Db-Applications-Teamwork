@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainSQLite.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainSQLite.DataAccess", "SupermarketChainSQLite.DataAccess\SupermarketChainSQLite.DataAccess.csproj", "{05574C2F-8C97-4FD0-857D-F2B1074DC70D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateJsonReports", "GenerateJsonReports\GenerateJsonReports.csproj", "{38791ECF-6CA6-49D9-809C-9E2A837D65E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38791ECF-6CA6-49D9-809C-9E2A837D65E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38791ECF-6CA6-49D9-809C-9E2A837D65E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38791ECF-6CA6-49D9-809C-9E2A837D65E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38791ECF-6CA6-49D9-809C-9E2A837D65E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
