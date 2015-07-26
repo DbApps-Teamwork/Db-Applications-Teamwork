@@ -25,3 +25,6 @@ SupermarketChain/SupermarketChainSQLite.Data/bin
 SupermarketChain/SupermarketChainSQLite.Data/obj
 SupermarketChain/SupermarketChainSQLite.DataAccess/bin
 SupermarketChain/SupermarketChainSQLite.DataAccess/obj
+SupermarketChain/GenerateJsonReports/bin
+SupermarketChain/GenerateJsonReports/obj
+.gitignore.swp
