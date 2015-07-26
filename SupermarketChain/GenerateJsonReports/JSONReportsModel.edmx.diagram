@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7711bd96e9c47ba867e1189276d9aab" Name="Diagram1">
+        <EntityTypeShape EntityType="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.Expens" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.Measure" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.Product" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.Sale" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.Vendor" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.FK_dbo_Expenses_dbo_Vendors_VendorId" ManuallyRouted="false" />
+        <AssociationConnector Association="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.FK_dbo_Products_dbo_Measures_MeasureId" ManuallyRouted="false" />
+        <AssociationConnector Association="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.FK_dbo_Products_dbo_Vendors_VendorId" ManuallyRouted="false" />
+        <AssociationConnector Association="SupermarketChainSQLServer.DataAccess.SupermarketSQLServerContextModel.FK_dbo_Sales_dbo_Products_ProductId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

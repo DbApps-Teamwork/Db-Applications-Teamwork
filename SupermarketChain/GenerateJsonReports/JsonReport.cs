@@ -15,10 +15,10 @@
         public string VendorName { get; set; }
 
         [JsonProperty("total-quantity-sold")]
-        public double QtySold { get; set; }
+        public decimal QtySold { get; set; }
 
         [JsonProperty("total-incomes")]
-        public double TotalIncome { get; set; }
+        public decimal TotalIncome { get; set; }
 
     }
 }
