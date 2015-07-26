@@ -22,6 +22,8 @@ using SupermarketChainOracle.Data;
 using SupermarketChainOracle.Data.Contracts;
 using SupermarketChainOracle.DataAccess;
 using SupermarketChainOracle.DataAccess.Contracts;
+using SupermarketChainSQLite.DataAccess;
+using SupermarketChainSQLite.DataAccess.Contracts;
 using SupermarketChainSQLServer.DataAccess;
 using SupermarketChainSQLServer.DataAccess.Contracts;
 
@@ -48,6 +50,9 @@ namespace SupermarketChainApp.NinjectModules
 
             Bind<ISupermarketMySQLEntities>().To<SupermarketChainEntitiesMySQL>();
             Bind<ISupermarketChainMySQLData>().To<SupermarketChainMySQLData>();
+
+            Bind<ISupermarketChainSQLiteContext>().To<SupermarketChainSQLiteContext>();
+            Bind<ISupermarketChainSQLiteData>().To<SupermarketChainSQLiteData>();
         }
     }
 }

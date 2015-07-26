@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainMySQL.Data"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainMySQL.DataAccess", "SupermarketChainMySQL.DataAccess\SupermarketChainMySQL.DataAccess.csproj", "{50ABE584-9D74-4EB8-9A69-CD35BFD0B91B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainSQLite.Data", "SupermarketChainSQLite.Data\SupermarketChainSQLite.Data.csproj", "{9442A17C-BCAA-4D33-A5C4-DB6A70DE37D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainSQLite.DataAccess", "SupermarketChainSQLite.DataAccess\SupermarketChainSQLite.DataAccess.csproj", "{05574C2F-8C97-4FD0-857D-F2B1074DC70D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{50ABE584-9D74-4EB8-9A69-CD35BFD0B91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50ABE584-9D74-4EB8-9A69-CD35BFD0B91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50ABE584-9D74-4EB8-9A69-CD35BFD0B91B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9442A17C-BCAA-4D33-A5C4-DB6A70DE37D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9442A17C-BCAA-4D33-A5C4-DB6A70DE37D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9442A17C-BCAA-4D33-A5C4-DB6A70DE37D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9442A17C-BCAA-4D33-A5C4-DB6A70DE37D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05574C2F-8C97-4FD0-857D-F2B1074DC70D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

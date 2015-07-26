@@ -103,6 +103,22 @@
                     <TextBlock Text="{Binding Message}"/>
                 </StackPanel>
             </TabItem>
+
+            <TabItem DataContext="{Binding Tabs[6]}" Header="Generate expenses / incomes">
+                <StackPanel>
+                    <Button Command="{Binding OpenFileDialogCommand}">
+                        Select folder
+                    </Button>
+                    <TextBlock>Path:</TextBlock>
+                    <TextBlock Text="{Binding Path}"/>
+                    <TextBlock>File name:</TextBlock>
+                    <TextBox Text="{Binding FileName}"/>
+                    <Button Command="{Binding GenerateIncomesExpensesCommand}">
+                        Generate incomes / expenses
+                    </Button>
+                    <TextBlock Text="{Binding Message}"/>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </StackPanel>
 </Window>

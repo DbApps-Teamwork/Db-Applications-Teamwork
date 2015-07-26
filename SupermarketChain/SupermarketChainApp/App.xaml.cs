@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using Ninject;
 using SupermarketChainApp.NinjectModules;
+using SupermarketChainOracle.Data;
+using SupermarketChainOracle.DataAccess;
+using SupermarketChainSQLite.DataAccess;
 
 namespace SupermarketChainApp
 {

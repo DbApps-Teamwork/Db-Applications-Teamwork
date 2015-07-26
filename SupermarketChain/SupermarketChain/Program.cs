@@ -15,6 +15,7 @@ using SupermarketChainMySQL.DataAccess;
 using SupermarketChainOracle.Data;
 using SupermarketChainOracle.DataAccess;
 using SupermarketChainOracle.DataAccess.Contracts;
+using SupermarketChainSQLite.DataAccess;
 using SupermarketChainSQLServer.Data;
 using SupermarketChainSQLServer.DataAccess;
 
@@ -90,6 +91,15 @@ namespace SupermarketChain
             //    Console.WriteLine(product.ProductName);
             //}
 
+
+            //  Test SQLite data access
+            //var data = new SupermarketChainSQLiteData(new SupermarketChainSQLiteContext());
+            //var taxes = data.ProductTaxRepository.Get();
+
+            //foreach (var productTax in taxes)
+            //{
+            //    Console.WriteLine(productTax.ProductName);
+            //}
         }
     }
 }
