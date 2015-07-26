@@ -129,6 +129,10 @@
       <Project>{9b2a7f3b-deaf-4e3f-b638-894ae8b51e9c}</Project>
       <Name>ExpenseDataLoader</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GenerateIncomesExensesReports\GenerateIncomesExensesReports.csproj">
+      <Project>{47d6e0fe-215b-4908-b159-aa94654e20a2}</Project>
+      <Name>GenerateIncomesExensesReports</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalesReportsGenerator\SalesReportsGenerator.csproj">
       <Project>{49727d80-fbc7-40ef-be78-b674c5f2b003}</Project>
       <Name>SalesReportsGenerator</Name>

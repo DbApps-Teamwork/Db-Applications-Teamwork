@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Automation.Peers;
 using System.Windows.Input;
+using GenerateIncomesExensesReports;
+using GenerateIncomesExensesReports.Contracts;
 using Ninject.Selection;
 using SupermarketChainApp.Commands;
 using SupermarketChainMySQL.DataAccess.Contracts;
@@ -19,6 +21,7 @@ namespace SupermarketChainApp.ViewModels
         private const decimal DefaultTax = 0.2m;
         private ISupermarketChainMySQLData mysqlData;
         private ISupermarketChainSQLiteData sqliteData;
+        private IIncomesExpensesGenerator generator;
         private ICommand openFileDialogCommand;
         private ICommand generateIncomesExpensesCommand;
         private string path;
@@ -27,10 +30,12 @@ namespace SupermarketChainApp.ViewModels
 
         public GenerateExpensesIncomesViewModel(
             ISupermarketChainMySQLData mysqlData,
-            ISupermarketChainSQLiteData sqliteData)
+            ISupermarketChainSQLiteData sqliteData,
+            IIncomesExpensesGenerator generator)
         {
             this.mysqlData = mysqlData;
             this.sqliteData = sqliteData;
+            this.generator = generator;
         }
 
         public string Path
@@ -97,7 +102,7 @@ namespace SupermarketChainApp.ViewModels
             this.generating = true;
             this.Message = "Generating...";
 
-            var filePath = this.Path + "\\" + this.FileName;
+            var filePath = String.Format("{0}\\{1}.xlsx", this.Path, this.FileName);
             var taxes = this.sqliteData.ProductTaxRepository.Get();
             var products = this.mysqlData.ProductRepository.Get(properties: "Vendor");
 
@@ -107,7 +112,7 @@ namespace SupermarketChainApp.ViewModels
                 from joined in vf.DefaultIfEmpty()
                 group new { p, joined } by new { p.Vendor.VendorName, p.Vendor.Expenses }
                 into grouped
-                select new
+                select new IncomesExpensesDto()
                 {
                     VendorName = grouped.Key.VendorName,
                     Expenses = grouped.Key.Expenses,
@@ -115,7 +120,7 @@ namespace SupermarketChainApp.ViewModels
                     TotalTaxes = grouped.Sum(g => g.p.Income * (g.joined == null ? DefaultTax : g.joined.Tax))
                 };
 
-            // Excel module - vendorFinances
+            this.generator.GenerateIncomesExpenses(vendorFinances, filePath);
 
             this.generating = false;
             this.Message = "Incomes and expenses generated successfully!";
