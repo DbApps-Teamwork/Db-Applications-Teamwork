@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Automation.Peers;
 using System.Windows.Input;
+using Ninject.Selection;
 using SupermarketChainApp.Commands;
 using SupermarketChainMySQL.DataAccess.Contracts;
 using SupermarketChainSQLite.DataAccess.Contracts;
@@ -14,6 +16,7 @@ namespace SupermarketChainApp.ViewModels
 {
     public class GenerateExpensesIncomesViewModel : ViewModelBase
     {
+        private const decimal DefaultTax = 0.2m;
         private ISupermarketChainMySQLData mysqlData;
         private ISupermarketChainSQLiteData sqliteData;
         private ICommand openFileDialogCommand;
@@ -96,10 +99,26 @@ namespace SupermarketChainApp.ViewModels
 
             var filePath = this.Path + "\\" + this.FileName;
             var taxes = this.sqliteData.ProductTaxRepository.Get();
+            var products = this.mysqlData.ProductRepository.Get(properties: "Vendor");
 
+            var vendorFinances =
+                from p in products
+                join t in taxes on p.ProductName equals t.ProductName into vf
+                from joined in vf.DefaultIfEmpty()
+                group new { p, joined } by new { p.Vendor.VendorName, p.Vendor.Expenses }
+                into grouped
+                select new
+                {
+                    VendorName = grouped.Key.VendorName,
+                    Expenses = grouped.Key.Expenses,
+                    Incomes = grouped.Sum(g => g.p.Income),
+                    TotalTaxes = grouped.Sum(g => g.p.Income * (g.joined == null ? DefaultTax : g.joined.Tax))
+                };
 
-            //this.generating = false;
-            //this.Message = "Incomes and expenses generated successfully!";
+            // Excel module - vendorFinances
+
+            this.generating = false;
+            this.Message = "Incomes and expenses generated successfully!";
         }
 
         private bool CanGenerate()
