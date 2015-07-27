@@ -3,6 +3,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TabItem">
+            <Setter Property="Background" Value="DarkGray"/>
+            <Setter Property="Height" Value="35"/>
+        </Style>
+
+        <Style TargetType="StackPanel">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="SlateGray"/>
+            <Setter Property="Margin" Value="20, 2"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="20, 2"/>
+        </Style>
+
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Margin" Value="20, 2"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Margin" Value="20, 2"/>
+        </Style>
+
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="LightGray"/>
+        </Style>
+
+        <Style TargetType="ListBox">
+            <Setter Property="Margin" Value="20, 0"/>
+        </Style>
     </Application.Resources>
 </Application>

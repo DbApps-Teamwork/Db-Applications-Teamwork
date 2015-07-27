@@ -15,6 +15,7 @@ namespace SupermarketChainApp.ViewModels
 {
     public class GenerateSalesReportsViewModel : ViewModelBase
     {
+        private const string DefaultExtension = "xml";
         private ISalesReportsGenerator generator;
         private ISupermarketChainSQLServerData sqlServerData;
         private ICommand openFileDialogCommand;
@@ -135,7 +136,8 @@ namespace SupermarketChainApp.ViewModels
             this.Message = "Generating reports, please wait...";
 
             var salesByVendor = this.sqlServerData.SaleRepository.GetSalesByVendor(this.StartDate, this.EndDate);
-            this.generator.Writer.Path = this.Path + "\\" + this.FileName;
+            var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
+            this.generator.Writer.Path = filePath;
             this.generator.GenerateSalesReports(salesByVendor);
 
             this.Message = "Reports generated successfully!";

@@ -6,6 +6,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Input;
 using ExcelSalesReports.DataAccess.Contracts;
 using Microsoft.Win32;
@@ -82,55 +83,47 @@ namespace SupermarketChainApp.ViewModels
             this.loadingReports = true;
             this.Message = "Importing reports, please wait...";
 
-            var reports = this.excelReportsData.GetSalesReports(this.Path);
-            foreach (var report in reports)
+            using (TransactionScope tran = new TransactionScope())
             {
-                var product = this.sqlServerData.ProductRepository
-                    .Get(p => p.ProductName.Equals(report.ProductName))
-                    .FirstOrDefault();
-
-                if (product != null)
+                var reports = this.excelReportsData.GetSalesReports(this.Path);
+                foreach (var report in reports)
                 {
-                    this.sqlServerData.SaleRepository.Add(new Sale()
+                    var product = this.sqlServerData.ProductRepository
+                        .Get(p => p.ProductName.Equals(report.ProductName))
+                        .FirstOrDefault();
+
+                    if (product != null)
                     {
-                        Location = report.Location,
-                        Price = report.UnitPrice,
-                        Quantity = report.Quantity,
-                        SaleDate = report.SaleDate,
-                        ProductId = product.ProductId
-                    });
+                        this.sqlServerData.SaleRepository.Add(new Sale()
+                        {
+                            Location = report.Location,
+                            Price = report.UnitPrice,
+                            Quantity = report.Quantity,
+                            SaleDate = report.SaleDate,
+                            ProductId = product.ProductId
+                        });
+                    }
+                    else
+                    {
+                        this.UnexistingProducts.Add(
+                            String.Format("Product with name {0} does not exists", report.ProductName));
+                    }
                 }
-                else
-                {
-                    this.UnexistingProducts.Add(
-                        String.Format("Product with name {0} does not exists", report.ProductName));
-                }
-            }
 
-            try
-            {
-                this.sqlServerData.Save();
-                this.Message = "Import successful!";
-            }
-            catch (InvalidOperationException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            catch (DbUpdateException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            catch (DbEntityValidationException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            catch (NotSupportedException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            finally
-            {
-                this.loadingReports = false;
+                try
+                {
+                    this.sqlServerData.Save();
+                    tran.Complete();
+                    this.Message = "Import successful!";
+                }
+                catch (Exception)
+                {
+                    this.Message = "Import failed!";
+                }               
+                finally
+                {
+                    this.loadingReports = false;
+                }
             }
         }
 

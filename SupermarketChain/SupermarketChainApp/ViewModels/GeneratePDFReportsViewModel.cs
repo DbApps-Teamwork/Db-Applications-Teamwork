@@ -13,6 +13,7 @@ namespace SupermarketChainApp.ViewModels
 {
     public class GeneratePDFReportsViewModel : ViewModelBase
     {
+        private const string DefaultExtension = "pdf";
         private ISupermarketChainSQLServerData sqlServerData;
         private ICommand openFileDialogCommand;
         private ICommand generateReportsCommand;
@@ -132,7 +133,8 @@ namespace SupermarketChainApp.ViewModels
             this.Message = "Generating reports, please wait...";
 
             var reports = this.sqlServerData.SaleRepository.GetAggregatedSalesReports(this.StartDate, this.EndDate);
-            // this.generator.Writer.Path = this.Path + "\\" + this.FileName;
+            var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
+            // this.generator.Writer.Path = filePath;
             // this.generator.GenerateSalesReports(salesByVendor);
 
             this.Message = "Reports generated successfully!";

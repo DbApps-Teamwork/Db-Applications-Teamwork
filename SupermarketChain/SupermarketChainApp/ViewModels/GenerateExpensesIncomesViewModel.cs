@@ -19,6 +19,7 @@ namespace SupermarketChainApp.ViewModels
     public class GenerateExpensesIncomesViewModel : ViewModelBase
     {
         private const decimal DefaultTax = 0.2m;
+        private const string DefaultExtension = "xlsx";
         private ISupermarketChainMySQLData mysqlData;
         private ISupermarketChainSQLiteData sqliteData;
         private IIncomesExpensesGenerator generator;
@@ -102,7 +103,7 @@ namespace SupermarketChainApp.ViewModels
             this.generating = true;
             this.Message = "Generating...";
 
-            var filePath = String.Format("{0}\\{1}.xlsx", this.Path, this.FileName);
+            var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
             var taxes = this.sqliteData.ProductTaxRepository.Get();
             var products = this.mysqlData.ProductRepository.Get(properties: "Vendor");
 
