@@ -47,10 +47,14 @@ namespace PdfReportsGenerator
                 currentDate = report.Date;
                 currentSum += report.Sum;
             }
-            this.AddDataFooter(table, currentSum, currentDate.Value);
-            dateSums.Add(currentSum);
-            this.AddTableFooter(table, dateSums.Sum());
 
+            if (reports.Any())
+            {
+                this.AddDataFooter(table, currentSum, currentDate.Value);
+                dateSums.Add(currentSum);
+            }
+            
+            this.AddTableFooter(table, dateSums.Sum());
             doc.Add(table);
             doc.Close();
         }
