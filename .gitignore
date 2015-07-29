@@ -27,3 +27,5 @@ SupermarketChain/GenerateIncomesExensesReports/bin
 SupermarketChain/GenerateIncomesExensesReports/obj
 SupermarketChain/GenerateJsonReports/bin
 SupermarketChain/GenerateJsonReports/obj
+SupermarketChain/PdfReportsGenerator/bin
+SupermarketChain/PdfReportsGenerator/obj
