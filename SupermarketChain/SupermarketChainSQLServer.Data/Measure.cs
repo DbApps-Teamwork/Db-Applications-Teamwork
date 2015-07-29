@@ -13,7 +13,7 @@ namespace SupermarketChainSQLServer.Data
         {
             this.Products = new HashSet<Product>();
         }
-
+        
         public int MeasureId { get; set; }
 
         [Required]

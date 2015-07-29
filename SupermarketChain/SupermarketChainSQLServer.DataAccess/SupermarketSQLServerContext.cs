@@ -25,5 +25,11 @@ namespace SupermarketChainSQLServer.DataAccess
         {
             return base.Set<T>();
         }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer(new DropCreateDatabaseAlways<SupermarketSQLServerContext>());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
