@@ -8,6 +8,7 @@ using GenerateIncomesExensesReports.Contracts;
 using GenerateJsonReports;
 using GenerateJsonReports.Contracts;
 using Ninject.Modules;
+using PdfReportsGenerator.Contracts;
 using SalesReportsGenerator;
 using SalesReportsGenerator.Contracts;
 using SalesReportsGenerator.Layouts;
@@ -55,6 +56,8 @@ namespace SupermarketChainApp.NinjectModules
             Bind<IIncomesExpensesGenerator>().To<ExcelIncomesExpensesGenerator>();
 
             Bind<IJsonReportGenerator>().To<JsonReportExport>();
+
+            Bind<IPdfReportsGenerator>().To<PdfReportsGenerator.PdfReportsGenerator>();
         }
     }
 }

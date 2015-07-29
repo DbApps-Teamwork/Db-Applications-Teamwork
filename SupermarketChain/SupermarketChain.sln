@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChain", "SupermarketChain\SupermarketChain.csproj", "{5750E589-B9A0-42DF-9AE0-78833560E1A3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainOracle.Data", "SupermarketChainOracle.Data\SupermarketChainOracle.Data.csproj", "{B50D2E39-214E-4FAC-BE60-0146D0A4D7E5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupermarketChainOracle.DataAccess", "SupermarketChainOracle.DataAccess\SupermarketChainOracle.DataAccess.csproj", "{C523DCCE-0C60-4590-9419-4BD6908D867A}"
@@ -33,16 +31,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateJsonReports", "Gene
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateIncomesExensesReports", "GenerateIncomesExensesReports\GenerateIncomesExensesReports.csproj", "{47D6E0FE-215B-4908-B159-AA94654E20A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfReportsGenerator", "PdfReportsGenerator\PdfReportsGenerator.csproj", "{792E5160-C4A5-4B8A-94C4-E0F8EE68F65D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5750E589-B9A0-42DF-9AE0-78833560E1A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5750E589-B9A0-42DF-9AE0-78833560E1A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5750E589-B9A0-42DF-9AE0-78833560E1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5750E589-B9A0-42DF-9AE0-78833560E1A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B50D2E39-214E-4FAC-BE60-0146D0A4D7E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B50D2E39-214E-4FAC-BE60-0146D0A4D7E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50D2E39-214E-4FAC-BE60-0146D0A4D7E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -99,6 +95,10 @@ Global
 		{47D6E0FE-215B-4908-B159-AA94654E20A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D6E0FE-215B-4908-B159-AA94654E20A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D6E0FE-215B-4908-B159-AA94654E20A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{792E5160-C4A5-4B8A-94C4-E0F8EE68F65D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{792E5160-C4A5-4B8A-94C4-E0F8EE68F65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{792E5160-C4A5-4B8A-94C4-E0F8EE68F65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{792E5160-C4A5-4B8A-94C4-E0F8EE68F65D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

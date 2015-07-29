@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using PdfReportsGenerator.Contracts;
 using SalesReportsGenerator.Contracts;
 using SupermarketChainApp.Commands;
 using SupermarketChainSQLServer.DataAccess.Contracts;
@@ -14,7 +15,8 @@ namespace SupermarketChainApp.ViewModels
     public class GeneratePDFReportsViewModel : ViewModelBase
     {
         private const string DefaultExtension = "pdf";
-        private ISupermarketChainSQLServerData sqlServerData;
+        private readonly ISupermarketChainSQLServerData sqlServerData;
+        private readonly IPdfReportsGenerator generator;
         private ICommand openFileDialogCommand;
         private ICommand generateReportsCommand;
         private DateTime startDate;
@@ -24,11 +26,12 @@ namespace SupermarketChainApp.ViewModels
         private bool generatingReports;
 
         public GeneratePDFReportsViewModel(
-            ISupermarketChainSQLServerData sqlServerData
+            ISupermarketChainSQLServerData sqlServerData,
+            IPdfReportsGenerator generator
             )
         {
             this.sqlServerData = sqlServerData;
-
+            this.generator = generator;
             this.generatingReports = false;
             this.StartDate = DateTime.Now;
             this.EndDate = DateTime.Now;
@@ -131,14 +134,24 @@ namespace SupermarketChainApp.ViewModels
         {
             this.generatingReports = true;
             this.Message = "Generating reports, please wait...";
-
-            var reports = this.sqlServerData.SaleRepository.GetAggregatedSalesReports(this.StartDate, this.EndDate);
+          
             var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
-            // this.generator.Writer.Path = filePath;
-            // this.generator.GenerateSalesReports(salesByVendor);
+      
+            try
+            {
+                var reports = this.sqlServerData.SaleRepository.GetAggregatedSalesReports(this.StartDate, this.EndDate);
+                this.generator.GenerateReports(reports, filePath);
+            }
+            catch (Exception)
+            {
+                this.Message = "Error generating reports!";
+            }
+            finally
+            {
+                this.generatingReports = false;
+            }
 
             this.Message = "Reports generated successfully!";
-            this.generatingReports = false;
         }
 
         private bool CanGenerateReports()
