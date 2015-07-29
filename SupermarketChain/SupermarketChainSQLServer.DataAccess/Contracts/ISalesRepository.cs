@@ -12,5 +12,7 @@ namespace SupermarketChainSQLServer.DataAccess.Contracts
         IEnumerable<VendorSalesDto> GetSalesByVendor(DateTime startDate, DateTime endDate);
 
         IEnumerable<AggregatedSalesReport> GetAggregatedSalesReports(DateTime startDate, DateTime endDate);
+
+        IEnumerable<JsonReport> GetJsonReports(DateTime startDate, DateTime endDate);
     }
 }

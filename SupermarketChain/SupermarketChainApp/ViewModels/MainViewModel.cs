@@ -20,7 +20,8 @@ namespace SupermarketChainApp.ViewModels
                 ObjectFactory.Get<GenerateSalesReportsViewModel>(),
                 ObjectFactory.Get<TransferDataToMySqlViewModel>(),
                 ObjectFactory.Get<GeneratePDFReportsViewModel>(),
-                ObjectFactory.Get<GenerateExpensesIncomesViewModel>()
+                ObjectFactory.Get<GenerateExpensesIncomesViewModel>(),
+                ObjectFactory.Get<GenerateJsonReportsViewModel>()
             };
         }
 

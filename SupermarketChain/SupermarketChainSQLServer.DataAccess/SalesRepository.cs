@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Objects;
 using System.Linq;
 using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using SupermarketChainSQLServer.Data;
@@ -57,6 +59,24 @@ namespace SupermarketChainSQLServer.DataAccess
                .ThenBy(s => s.ProductName);
 
             return sales.ToList();
+        }
+
+        public IEnumerable<JsonReport> GetJsonReports(DateTime startDate, DateTime endDate)
+        {
+            var reports = context.Sales
+                .Include(e => e.Product)
+                .Include(e => e.Product.Vendor)
+                .Where(s => s.SaleDate >= startDate && s.SaleDate <= endDate)
+                .Select(x => new JsonReport
+                {
+                    Id = x.ProductId,
+                    ProductName = x.Product.ProductName,
+                    VendorName = x.Product.Vendor.VendorName,
+                    QtySold = x.Quantity,
+                    TotalIncome = x.Quantity * x.Product.Price
+                });
+
+            return reports;
         }
     }
 }

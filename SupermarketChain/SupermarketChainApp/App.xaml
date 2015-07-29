@@ -5,7 +5,7 @@
     <Application.Resources>
         <Style TargetType="TabItem">
             <Setter Property="Background" Value="DarkGray"/>
-            <Setter Property="Height" Value="35"/>
+            <Setter Property="Height" Value="39"/>
         </Style>
 
         <Style TargetType="StackPanel">

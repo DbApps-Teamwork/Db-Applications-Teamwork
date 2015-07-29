@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-using ExcelSalesReports.DataAccess;
+﻿using ExcelSalesReports.DataAccess;
 using ExcelSalesReports.DataAccess.Contracts;
 using ExpenseDataLoader;
 using ExpenseDataLoader.Contracts;
 using ExpenseDataLoader.Readers;
 using GenerateIncomesExensesReports;
 using GenerateIncomesExensesReports.Contracts;
+using GenerateJsonReports;
+using GenerateJsonReports.Contracts;
 using Ninject.Modules;
 using SalesReportsGenerator;
 using SalesReportsGenerator.Contracts;
@@ -57,6 +53,8 @@ namespace SupermarketChainApp.NinjectModules
             Bind<ISupermarketChainSQLiteData>().To<SupermarketChainSQLiteData>();
 
             Bind<IIncomesExpensesGenerator>().To<ExcelIncomesExpensesGenerator>();
+
+            Bind<IJsonReportGenerator>().To<JsonReportExport>();
         }
     }
 }
