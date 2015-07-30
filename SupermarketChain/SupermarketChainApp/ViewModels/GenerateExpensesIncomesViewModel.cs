@@ -103,27 +103,38 @@ namespace SupermarketChainApp.ViewModels
             this.generating = true;
             this.Message = "Generating...";
 
-            var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
-            var taxes = this.sqliteData.ProductTaxRepository.Get();
-            var products = this.mysqlData.ProductRepository.Get(properties: "Vendor");
+            try
+            {
+                var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
+                var taxes = this.sqliteData.ProductTaxRepository.Get();
+                var products = this.mysqlData.ProductRepository.Get(properties: "Vendor");
 
-            var vendorFinances =
-                from p in products
-                join t in taxes on p.ProductName equals t.ProductName into vf
-                from joined in vf.DefaultIfEmpty()
-                group new { p, joined } by new { p.Vendor.VendorName, p.Vendor.Expenses }
-                into grouped
-                select new IncomesExpensesDto()
-                {
-                    VendorName = grouped.Key.VendorName,
-                    Expenses = grouped.Key.Expenses,
-                    Incomes = grouped.Sum(g => g.p.Income),
-                    TotalTaxes = grouped.Sum(g => g.p.Income * (g.joined == null ? DefaultTax : g.joined.Tax))
-                };
+                var vendorFinances =
+                    from p in products
+                    join t in taxes on p.ProductName equals t.ProductName into vf
+                    from joined in vf.DefaultIfEmpty()
+                    group new {p, joined} by new {p.Vendor.VendorName, p.Vendor.Expenses}
+                    into grouped
+                    select new IncomesExpensesDto()
+                    {
+                        VendorName = grouped.Key.VendorName,
+                        Expenses = grouped.Key.Expenses,
+                        Incomes = grouped.Sum(g => g.p.Income),
+                        TotalTaxes = grouped.Sum(g => g.p.Income*(g.joined == null ? DefaultTax : g.joined.Tax))
+                    };
 
-            this.generator.GenerateIncomesExpenses(vendorFinances, filePath);
+                this.generator.GenerateIncomesExpenses(vendorFinances, filePath);
+            }
+            catch (Exception)
+            {
+                this.generating = false;
+                this.Message = "Generation failed!";
+            }
+            finally
+            {
+                this.generating = false;
+            }
 
-            this.generating = false;
             this.Message = "Incomes and expenses generated successfully!";
         }
 

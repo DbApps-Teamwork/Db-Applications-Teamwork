@@ -46,10 +46,11 @@ namespace SupermarketChainApp.ViewModels
 
         private void TransferData()
         {
+            this.Message = "Transfering data, please wait...";
+            this.transferingData = true;
+
             try
             {
-                this.transferingData = true;
-                this.Message = "Transfering data, please wait...";
                 this.TransferMeasures();
                 this.TransferVendors();
                 this.sqlServerData.Save();
@@ -58,19 +59,7 @@ namespace SupermarketChainApp.ViewModels
                 this.sqlServerData.Save();
                 this.Message = "Transfer successful!";
             }
-            catch (InvalidOperationException ex)
-            {
-                this.Message = "Transfer failed!";
-            }
-            catch (DbUpdateException ex)
-            {
-                this.Message = "Transfer failed!";
-            }
-            catch (DbEntityValidationException ex)
-            {
-                this.Message = "Transfer failed!";
-            }
-            catch (NotSupportedException ex)
+            catch (Exception)
             {
                 this.Message = "Transfer failed!";
             }

@@ -84,48 +84,36 @@ namespace SupermarketChainApp.ViewModels
             this.Message = "Importing vendor expenses reports, please wait...";
             this.loadingReports = false;
 
-            this.expenseLoader.Reader.Path = this.Path;
-            var expensesReports = this.expenseLoader.LoadExpenses();
-
-            foreach (var expense in expensesReports)
-            {
-                var vendor = sqlServerData.VendorRepository
-                    .Get(exp => exp.VendorName.Equals(expense.VendorName)).FirstOrDefault();
-
-                if (vendor != null)
-                {
-                    this.sqlServerData.ExpenseRepository.Add(new Expense()
-                    {
-                        VendorId = vendor.VendorId,
-                        ExpenseDate = expense.ExpenseDate,
-                        ExpenseSum = expense.ExpenseSum
-                    });
-                }
-                else
-                {
-                    this.UnexistingVendors.Add(
-                        String.Format("Vendor with name: {0} does not exists", expense.VendorName));
-                }
-            }
-
             try
             {
+                this.expenseLoader.Reader.Path = this.Path;
+                var expensesReports = this.expenseLoader.LoadExpenses();
+
+                foreach (var expense in expensesReports)
+                {
+                    var vendor = sqlServerData.VendorRepository
+                        .Get(exp => exp.VendorName.Equals(expense.VendorName)).FirstOrDefault();
+
+                    if (vendor != null)
+                    {
+                        this.sqlServerData.ExpenseRepository.Add(new Expense()
+                        {
+                            VendorId = vendor.VendorId,
+                            ExpenseDate = expense.ExpenseDate,
+                            ExpenseSum = expense.ExpenseSum
+                        });
+                    }
+                    else
+                    {
+                        this.UnexistingVendors.Add(
+                            String.Format("Vendor with name: {0} does not exists", expense.VendorName));
+                    }
+                }
+
                 this.sqlServerData.Save();
                 this.Message = "Import successful!";
             }
-            catch (InvalidOperationException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            catch (DbUpdateException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            catch (DbEntityValidationException ex)
-            {
-                this.Message = "Import failed!";
-            }
-            catch (NotSupportedException ex)
+            catch (Exception)
             {
                 this.Message = "Import failed!";
             }

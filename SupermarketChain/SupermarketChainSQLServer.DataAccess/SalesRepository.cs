@@ -63,18 +63,21 @@ namespace SupermarketChainSQLServer.DataAccess
 
         public IEnumerable<JsonReport> GetJsonReports(DateTime startDate, DateTime endDate)
         {
-            var reports = context.Sales
-                .Include(e => e.Product)
-                .Include(e => e.Product.Vendor)
-                .Where(s => s.SaleDate >= startDate && s.SaleDate <= endDate)
-                .Select(x => new JsonReport
+            var reports = context.Products
+                .Where(p => p.Sales.Any(s => s.SaleDate >= startDate && s.SaleDate <= endDate))
+                .Select(p => new JsonReport()
                 {
-                    Id = x.ProductId,
-                    ProductName = x.Product.ProductName,
-                    VendorName = x.Product.Vendor.VendorName,
-                    QtySold = x.Quantity,
-                    TotalIncome = x.Quantity * x.Product.Price
-                });
+                    Id = p.ProductId,
+                    ProductName = p.ProductName,
+                    VendorName = p.Vendor.VendorName,
+                    QtySold = p.Sales
+                        .Where(s => s.SaleDate >= startDate && s.SaleDate <= endDate)
+                        .Sum(s => s.Quantity),
+                    TotalIncome = p.Sales
+                        .Where(s => s.SaleDate >= startDate && s.SaleDate <= endDate)
+                        .Sum(s => (s.Quantity * s.Price))
+                })
+                .ToList();
 
             return reports;
         }

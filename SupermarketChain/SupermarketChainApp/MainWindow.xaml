@@ -1,7 +1,7 @@
 ﻿<Window x:Class="SupermarketChainApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="355" Width="525">
+        Title="MainWindow" Height="355" Width="625">
     <Grid>
         <TabControl TabStripPlacement="Left">
             <TabItem DataContext="{Binding Tabs[0]}" Header="Transfer data to SQL Server">
@@ -19,7 +19,7 @@
                         Select file
                     </Button>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Path:</TextBlock>
-                    <TextBlock Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
                     <Button Command="{Binding LoadReportsCommand}">
                         Import Excel reports
                     </Button>
@@ -61,7 +61,7 @@
                         Select folder
                     </Button>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Path:</TextBlock>
-                    <TextBlock Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">File name:</TextBlock>
                     <TextBox Text="{Binding FileName}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Start date:</TextBlock>
@@ -90,7 +90,7 @@
                         Select folder
                     </Button>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Path:</TextBlock>
-                    <TextBlock Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">File name:</TextBlock>
                     <TextBox Text="{Binding FileName}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Start date:</TextBlock>
@@ -110,7 +110,7 @@
                         Select folder
                     </Button>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Path:</TextBlock>
-                    <TextBlock Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">File name:</TextBlock>
                     <TextBox Text="{Binding FileName}"/>
                     <Button Command="{Binding GenerateIncomesExpensesCommand}">
@@ -126,9 +126,7 @@
                         Select folder
                     </Button>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Path:</TextBlock>
-                    <TextBlock Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
-                    <TextBlock Style="{StaticResource TextBlockStyle}">File name:</TextBlock>
-                    <TextBox Text="{Binding FileName}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding Path}" Style="{StaticResource TextBlockStyle}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">Start date:</TextBlock>
                     <DatePicker SelectedDate="{Binding StartDate}"/>
                     <TextBlock Style="{StaticResource TextBlockStyle}">End date:</TextBlock>

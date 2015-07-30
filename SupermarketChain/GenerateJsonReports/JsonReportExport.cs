@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using GenerateJsonReports.Contracts;
 using SupermarketChainSQLServer.Data;
 
@@ -12,13 +13,15 @@ namespace GenerateJsonReports
     {
         private const string MongoHost = "mongodb://localhost";
         private const string MongoDbName = "Sales";
+        private const string DefaultExtension = "json";
 
         public void ExportToFile(IEnumerable<JsonReport> reports, string path)
         {
             foreach (var report in reports)
             {
                 //for each products, create a file with .json ext in the Json-Reports folder
-                var writer = new StreamWriter(path);
+                var fileName = report.Id;
+                var writer = new StreamWriter(String.Format(@"{0}\{1}.{2}", path, fileName, DefaultExtension));
                 using (writer)
                 {
                     //output file will have indentation 

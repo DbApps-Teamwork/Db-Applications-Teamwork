@@ -46,10 +46,11 @@ namespace SupermarketChainApp.ViewModels
 
         private void TransferData()
         {
+            this.transferingData = true;
+            this.Message = "Transfering data, please wait...";
+
             try
-            {
-                this.transferingData = true;
-                this.Message = "Transfering data, please wait...";
+            {              
                 this.TransferVendors();
                 this.mysqlData.Save();
                 this.TransferProducts();
@@ -57,21 +58,10 @@ namespace SupermarketChainApp.ViewModels
                 this.mysqlData.Save();
                 this.Message = "Transfer successful!";
             }
-            catch (InvalidOperationException ex)
+            catch (Exception ex)
             {
                 this.Message = "Transfer failed!";
-            }
-            catch (DbUpdateException ex)
-            {
-                this.Message = "Transfer failed!";
-            }
-            catch (DbEntityValidationException ex)
-            {
-                this.Message = "Transfer failed!";
-            }
-            catch (NotSupportedException ex)
-            {
-                this.Message = "Transfer failed!";
+                this.Message = ex.Message;
             }
             finally
             {
@@ -96,7 +86,7 @@ namespace SupermarketChainApp.ViewModels
                         Expenses = vendor.Expenses
                     });
                 }
-                else if(!existingVendor.Expenses.Equals(vendor.Expenses))
+                else if (!existingVendor.Expenses.Equals(vendor.Expenses))
                 {
                     existingVendor.Expenses = vendor.Expenses;
                     this.mysqlData.VendorRepository.Update(existingVendor);

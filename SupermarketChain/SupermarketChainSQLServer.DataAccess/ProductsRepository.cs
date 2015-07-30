@@ -22,7 +22,7 @@ namespace SupermarketChainSQLServer.DataAccess
             {
                 ProductName = p.ProductName,
                 VendorName = p.Vendor.VendorName,
-                Incomes = p.Sales.Sum(s => s.Price * s.Quantity)
+                Incomes = p.Sales.Sum(s => (decimal?)(s.Price * s.Quantity)) ?? 0
             });
 
             return products;

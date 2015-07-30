@@ -13,7 +13,6 @@ namespace SupermarketChainApp.ViewModels
 {
     public class GenerateJsonReportsViewModel : ViewModelBase
     {
-        private const string DefaultExtension = "json";
         private readonly ISupermarketChainSQLServerData sqlServerData;
         private readonly IJsonReportGenerator reportsGenerator;
         private ICommand openFileDialogCommand;
@@ -21,7 +20,7 @@ namespace SupermarketChainApp.ViewModels
         private DateTime startDate;
         private DateTime endDate;
         private string path;
-        private string fileName;
+     //   private string fileName;
         private bool generatingReports;
 
         public GenerateJsonReportsViewModel(
@@ -86,23 +85,6 @@ namespace SupermarketChainApp.ViewModels
             }
         }
 
-        public string FileName
-        {
-            get
-            {
-                return this.fileName;
-            }
-            set
-            {
-                if (this.fileName != null && this.fileName.Equals(value))
-                {
-                    return;
-                }
-                this.fileName = value;
-                this.OnPropertyChanged("FileName");
-            }
-        }
-
         public ICommand OpenFileDialogCommand
         {
             get
@@ -133,12 +115,10 @@ namespace SupermarketChainApp.ViewModels
             this.generatingReports = true;
             this.Message = "Generating reports, please wait...";
 
-            var reports = this.sqlServerData.SaleRepository.GetJsonReports(this.StartDate, this.EndDate);
-            var filePath = String.Format("{0}\\{1}.{2}", this.Path, this.FileName, DefaultExtension);
-
             try
             {
-                this.reportsGenerator.ExportToFile(reports, filePath);
+                var reports = this.sqlServerData.SaleRepository.GetJsonReports(this.StartDate, this.EndDate).ToList();
+                this.reportsGenerator.ExportToFile(reports, this.Path);
                 this.reportsGenerator.ImportToMongo(reports);
             }
             catch (Exception)

@@ -17,11 +17,13 @@ namespace SupermarketChainSQLServer.DataAccess
 
         public IEnumerable<VendorDto> GetVendorsWithExpenses()
         {
-            var vendors = this.context.Vendors.Select(v => new VendorDto()
-            {
-                VendorName = v.VendorName,
-                Expenses = v.Expenses.Sum(s => s.ExpenseSum)
-            }).ToList();
+            var vendors = this.context.Vendors
+                .Select(v => new VendorDto()
+                {
+                    VendorName = v.VendorName,
+                    Expenses = v.Expenses.Sum(e => (decimal?)e.ExpenseSum) ?? 0m
+                })
+                .ToList();
 
             return vendors;
         }

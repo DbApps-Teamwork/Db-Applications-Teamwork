@@ -28,7 +28,7 @@ namespace SupermarketChainSQLServer.DataAccess
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<SupermarketSQLServerContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<SupermarketSQLServerContext>());
             base.OnModelCreating(modelBuilder);
         }
     }
