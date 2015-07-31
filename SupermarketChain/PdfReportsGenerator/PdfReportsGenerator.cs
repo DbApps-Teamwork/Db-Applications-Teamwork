@@ -17,13 +17,13 @@ namespace PdfReportsGenerator
     public class PdfReportsGenerator : IPdfReportsGenerator
     {
         private const string DefaultDateFormat = "d-MMM-yyyy";
-        private iTextSharp.text.Font dataFont = 
+        private readonly iTextSharp.text.Font dataFont = 
             new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 8f, iTextSharp.text.Font.NORMAL, new BaseColor(0, 0, 0));
-        private iTextSharp.text.Font dataHeaderFont =
+        private readonly iTextSharp.text.Font dataHeaderFont =
             new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 8f, iTextSharp.text.Font.BOLD, new BaseColor(0, 0, 0));
-        private BaseColor DateHeaderColor = new BaseColor(229, 229, 229);
-        private BaseColor DataHeaderColor = new BaseColor(153, 153, 153);
-        private BaseColor TableFooterColor = new BaseColor(204, 255, 255);
+        private readonly BaseColor DateHeaderColor = new BaseColor(229, 229, 229);
+        private readonly BaseColor DataHeaderColor = new BaseColor(153, 153, 153);
+        private readonly BaseColor TableFooterColor = new BaseColor(204, 255, 255);
 
         public void GenerateReports(IEnumerable<AggregatedSalesReport> reports, string path)
         {
